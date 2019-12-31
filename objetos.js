@@ -49,5 +49,29 @@ class Cat{
 };
 var perro = new Cat('Kody Mars', 4, 20);
 perro.run();
+document.write('<br>');
 
 //herencias
+class Animal{
+	constructor(tipo, raza){
+		this.cero = tipo;
+		this.raza = raza;
+	};
+};
+
+class Domesticos extends Animal{
+	constructor(cero, nombre, edad, peso){
+		super(cero)
+		this.uno = nombre;
+		this.dos = edad;
+		this.tres = peso;
+	};
+};
+
+
+var animal1 = new Domesticos('Hogar', 'Skype', 3, 8);
+var animal2 = new Domesticos('Hogar', 'Perry', 4, 9);
+var unico 	= new Animal('Salvaje', 'Desconocida');
+document.write(animal1.cero);
+document.write('<br>');
+document.write(unico.cero);
