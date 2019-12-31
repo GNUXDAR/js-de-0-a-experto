@@ -75,3 +75,6 @@ var unico 	= new Animal('Salvaje', 'Desconocida');
 document.write(animal1.cero);
 document.write('<br>');
 document.write(unico.cero);
+document.write('<br>');
+
+//BOM
