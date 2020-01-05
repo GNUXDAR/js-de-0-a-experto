@@ -123,7 +123,7 @@ document.write('<br>'+ buscar);
 
 
 
-//PLUS, perimite editar toeo el contenido de la vista
+//PLUS, perimite editar todo el contenido de la vista
 document.designMode = 'on';
 
 
