@@ -13,17 +13,18 @@ p, li {
   font-size: 16px;
   line-height: 2;
   letter-spacing: 1px;
+  color: #000;
 }
 
 
 html {
-  background-color: #00539F;
+  background-color: #006be6;
 }
 
 body {
   width: 600px;
   margin: 0 auto;
-  background-color: #FF9500;
+  background-color: #fff;/*#FF9500;*/
   padding: 0 20px 20px 20px;
   border: 5px solid black;
 }
@@ -31,7 +32,7 @@ body {
 h1 {
   margin: 0;
   padding: 20px 0;
-  color: #00539F;
+  color: #006be6; /*#00539F;*/
   text-shadow: 3px 3px 1px black;
 }
 

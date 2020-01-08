@@ -1,3 +1,4 @@
+//para obtener una referencia document.querySelector('Element');
 var miTitulo = document.querySelector('h1');
 miTitulo.innerHTML = 'Hello world! ';
 
@@ -11,16 +12,34 @@ var miImage = document.querySelector('img');
 miImage.onclick = function(){
 	var miSrc = miImage.getAttribute('src');
 	if (miSrc === 'images/firefox-icon.png') {
-		miImage.setAttribute('src', 'images/firefox-icon2.png');
-		miLegend.style.color = 'red';
-		miLegend.style.background = 'blue';
-		miLegend.innerHTML ='Soy mas viejo pero tambien soy un panda rojo en peligro de extinsion';
-		
-	}else{
-		miImage.setAttribute('src', 'images/firefox-icon.png');
-		miLegend.style.color = 'red';
-		miLegend.style.background = 'blue';
+		miImage.setAttribute('src', 'images/firefox-icon1.png');
+		miLegend.style.color = '#fffc40';
+		miLegend.style.background = '#006be6';
 		miLegend.innerHTML ='Ouch! Deja de pincharme! soy un panda rojo en peligro de extinsion';
+		
+	}else if(miSrc === 'images/firefox-icon1.png'){
+		miImage.setAttribute('src', 'images/firefox-icon2.png');
+		miLegend.style.color = '#fffc40';
+		miLegend.style.background = '#006be6';
+		miLegend.innerHTML ='Soy mas viejo pero tambien soy un panda rojo en peligro de extinsion';
+	}else if(miSrc === 'images/firefox-icon2.png'){
+		miImage.setAttribute('src', 'images/firefox-icon3.png');
+		miLegend.style.color = '#fffc40';
+		miLegend.style.background = '#006be6';
+		miLegend.innerHTML ='Soy mas viejo aun pero tambien soy un panda rojo en peligro de extinsion';
+	}else if(miSrc === 'images/firefox-icon3.png'){
+		miImage.setAttribute('src', 'images/firefox-icon4.png');
+		miLegend.style.color = '#fffc40';
+		miLegend.style.background = '#006be6';
+		miLegend.innerHTML ='Yo soy un Phoenix';
+	}else if(miSrc === 'images/firefox-icon4.png'){
+		miImage.setAttribute('src', 'images/firefox-icon.png');
+		miLegend.style.color = '#fffc40';
+		miLegend.style.background = '#006be6';
+		miLegend.innerHTML ='Yo no soy un panda';
+	}
+	else{
+		alert('end');
 	}
 }
 
@@ -39,7 +58,7 @@ if (!localStorage.getItem('nombre')) {
 }
 else {
     var nombreAlmacenado = localStorage.getItem('nombre');
-    miTitulo.textContent = 'Mozilla es fresco, '+nombreAlmacenado;
+    miTitulo.textContent += nombreAlmacenado;
 }
 
 miBoton.onclick = function() {
