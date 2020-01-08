@@ -40,7 +40,7 @@ document.write('<br>');
 
 var number = 5;
 number += number;
-document.write(number);
+document.write(number);	//10
 document.write('<br>');
 
 if(number == 10){
