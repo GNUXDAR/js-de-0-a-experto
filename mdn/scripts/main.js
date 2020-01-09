@@ -3,7 +3,7 @@ var miTitulo = document.querySelector('h1');
 miTitulo.innerHTML = 'Hello world! ';
 
 document.querySelector('img').onclick = function() {
-    alert('Ouch! Deja de pincharme! soy un panda rojo en peligro de extinsion');
+    alert('Ouch! Deja de pincharme! soy un panda rojo en peligro de extinción');
 }
 
 //cambiador de imagen
@@ -15,18 +15,18 @@ miImage.onclick = function(){
 		miImage.setAttribute('src', 'images/firefox-icon1.png');
 		miLegend.style.color = '#fffc40';
 		miLegend.style.background = '#006be6';
-		miLegend.innerHTML ='Ouch! Deja de pincharme! soy un panda rojo en peligro de extinsion';
+		miLegend.innerHTML ='Ouch! Deja de pincharme! soy un panda rojo en peligro de extinción';
 		
 	}else if(miSrc === 'images/firefox-icon1.png'){
 		miImage.setAttribute('src', 'images/firefox-icon2.png');
 		miLegend.style.color = '#fffc40';
 		miLegend.style.background = '#006be6';
-		miLegend.innerHTML ='Soy mas viejo pero tambien soy un panda rojo en peligro de extinsion';
+		miLegend.innerHTML ='Soy mas viejo pero tambien soy un panda rojo en peligro de extinción';
 	}else if(miSrc === 'images/firefox-icon2.png'){
 		miImage.setAttribute('src', 'images/firefox-icon3.png');
 		miLegend.style.color = '#fffc40';
 		miLegend.style.background = '#006be6';
-		miLegend.innerHTML ='Soy mas viejo aun pero tambien soy un panda rojo en peligro de extinsion';
+		miLegend.innerHTML ='Soy mas viejo aun pero tambien soy un panda rojo en peligro de extinción';
 	}else if(miSrc === 'images/firefox-icon3.png'){
 		miImage.setAttribute('src', 'images/firefox-icon4.png');
 		miLegend.style.color = '#fffc40';
