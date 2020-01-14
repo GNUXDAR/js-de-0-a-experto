@@ -29,3 +29,9 @@ console.log(parseFloat(numFalso)+30);
 
 //de numero a string
 console.log(String(num_entero)+40);
+
+//saber el tipo de dato
+console.log(typeof(num_entero));
+console.log(typeof(string));
+console.log(typeof(verdad_falso));
+console.log(typeof(numFalso));
