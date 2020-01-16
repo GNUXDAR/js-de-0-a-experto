@@ -10,7 +10,7 @@
 
 var num = parseInt(prompt('Ingrese su numero', 0));
 
-while(num < 0 || isNaN(num)){
+while(isNaN(num)){
 	num = parseInt(prompt('Ingrese su numero', 0));
 }
 
