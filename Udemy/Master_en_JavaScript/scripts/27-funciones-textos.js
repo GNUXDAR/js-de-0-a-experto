@@ -86,3 +86,40 @@ console.log(busqueda);
 //da un resultado booleano si existe lo que pasemos por parametro, pero podemos indicar desde donde comenzar a buscar
 busqueda = texto1.includes('frontend en js', 10);
 console.log(busqueda);
+
+//remplazar un texto por otro
+busqueda = texto1.replace('frontend en js', 'backend con laravel');
+console.log(busqueda);
+
+//recortar desde el primer parametro o desde el 1 al 2 cuando tiene 2 parametros
+busqueda = texto1.trim();
+console.log(busqueda);
+
+//convierte un string en Array
+busqueda = texto1.split();
+console.log(busqueda);
+
+//divide en lo que le pasemos en Array
+busqueda = texto1.split(" ");
+console.log(busqueda);
+
+//elimina los espacios en blanco en ambos extremos del string
+texto1 = '     quitar los espacios de los extremos de una cadena  ';
+busqueda = texto1.trim();
+console.log(busqueda);
+
+//elimina los espacios en blanco del final de una cadena
+texto1 = '     quitar los espacios del  final de una cadena  ';
+console.log(texto1);
+console.log(texto1.length);
+busqueda = texto1.trimEnd();
+console.log(busqueda.length);
+console.log(busqueda);
+
+//elimina los espacios en blanco del inicio de una cadena
+texto1 = '     quitar los espacios del  inicio de una cadena  ';
+console.log(texto1);
+console.log(texto1.length);
+busqueda = texto1.trimStart();
+console.log(busqueda.length);
+console.log(busqueda);
