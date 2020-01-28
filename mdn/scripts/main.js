@@ -2,17 +2,13 @@
 var miTitulo = document.querySelector('h1');
 miTitulo.innerHTML = 'Hello world! ';
 
-document.querySelector('img').onclick = function() {
-    alert('Ouch! Deja de pincharme! soy un panda rojo en peligro de extinción');
-}
-
 //cambiador de imagen
 var miLegend = document.querySelector('h2');
 var miImage = document.querySelector('img');
 miImage.onclick = function(){
-	var miSrc = miImage.getAttribute('src');
+	var miSrc = miImage.getAttribute('src'); //captura el valos de src (la ruta de la imagen)
 	if (miSrc === 'images/firefox-icon.png') {
-		miImage.setAttribute('src', 'images/firefox-icon1.png');
+		miImage.setAttribute('src', 'images/firefox-icon1.png');	//Para obtener el valor actual de un atributo, se utiliza getAttribute(); para eliminar un atributo, se llama a removeAttribute().
 		miLegend.style.color = '#fffc40';
 		miLegend.style.background = '#006be6';
 		miLegend.innerHTML ='Ouch! Deja de pincharme! soy un panda rojo en peligro de extinción';
