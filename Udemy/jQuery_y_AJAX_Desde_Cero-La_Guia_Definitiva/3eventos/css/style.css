@@ -1,0 +1,19 @@
+body {
+    background-color: #700cc2;
+}
+
+.highlighted {
+    background: yellow !important;
+}
+
+.container {
+    margin: 80px;
+    height: 100px; 
+    background: #428bca;
+}
+
+.switch {
+    margin-top: 50%;
+}
+
+
