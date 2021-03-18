@@ -1,0 +1,14 @@
+body {
+	font-family: arial;
+	background-color: #9B50AF;
+}
+
+.example {
+	position: relative;
+	left: 20px;
+	width: 100px;
+	height: 100px;
+	margin-top: 20px;	
+	background-color: #3BEAB4;
+}
+
