@@ -1,0 +1,36 @@
+body {
+	font-family: arial;
+	background-color: #9B50AF;
+}
+
+#add-container {
+	margin-top: 50px;
+	margin-bottom: 80px;
+	margin-left: 30px; 
+}
+
+#places-container {
+	margin-left: 30px;
+}
+
+
+.item {
+	width: 150px;
+	margin: 10px;
+	background-color: #3BEAB4;
+	padding: 10px;
+}
+
+.remove {
+	width: 15px;
+	float: right;
+	color: red;
+}
+
+button {
+	background-color: #F09306;
+	color: white;
+	font-weight: bold;
+	border:none;
+	padding: 5px;
+}
