@@ -1,0 +1,11 @@
+.creature {
+    margin: 20px;
+    background-color: #FFE1FF;
+    border: 1px solid #8B7B8B;
+}
+
+.terrain {
+    margin: 20px;
+    background-color: green;
+    border: 1px solid #8B7B8B;
+}

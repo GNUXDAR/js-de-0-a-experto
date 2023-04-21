@@ -1,0 +1,29 @@
+li {
+    margin: 10px;
+}
+
+#container {
+    padding: 30px;
+    background-color:yellow;
+}
+
+.class1 {
+    background-color: #9b50af;
+}
+
+.class2 {
+    background-color: green;
+}
+
+.highlighted {
+    color: blue;
+    background-color: red;
+}
+
+.highlighted2 {
+    background-color: yellow;
+}
+
+.highlighted3 {
+    color: green;
+}
