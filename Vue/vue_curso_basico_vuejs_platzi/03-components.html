@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Componentes</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+		<!-- estilos dinamicos desde valor desde data con v-bind:style-->
+		<div class="left">
+			<p>{{ title }}</p>
+			 <counter></counter>
+		</div>
+		<div class="right">
+			<!-- verificacion de vue -->
+			<pre>{{ $data }}</pre>
+		</div>
+
+	</div>
+
+	<script src="js/vue.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		// Definir un nuevo componente llamado button-counter
+		Vue.component('counter', {
+		  data() {
+		    return {
+		      counter: 0
+		    }
+		  },
+		  methods: {
+		  	increment() {
+		  		this.counter += 1
+		  	}
+		  },
+		  template: `
+		  <div>
+		  	<button v-on:click="increment">Me han pulsado {{ counter }} veces.</button>
+		  </div>`
+		})
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					title: 'Componentes'
+				}
+			}
+		})
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+		<!-- estilos dinamicos desde valor desde data con v-bind:style-->
+		<p>Manejo de eventos, condicionales, v-bind:class, v-bind:style propiedades computadas y watchers</p>
+		<div class="left" v-bind:style="{ background: '#' + color }">
+			<img
+				class="mouse"
+				v-on:mouseover="toggleShowPrices"
+				v-on:mouseout="toggleShowPrices"
+				v-bind:src="img" v-bind:alt="name" width="50px;"
+			>
+			<!-- atributo class con v-bind -->
+			<h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
+				{{ title }} = {{ price }}$
+			</h1>
+
+			<p>Mostrar: {{ showPrices }}</p>
+
+			<span v-on:click="toggleShowPrices" class="mouse">
+				{{ showPrices ? '🐵' : '🙈' }}
+			</span>
+			<br>
+			<input type="number" v-model="value">	<span>$</span>
+			<br>
+			<span>{{ convertedValue }} {{ title }}</span>
+
+			<ul v-show="showPrices"> <!-- muestra si es true -->
+				<!-- aplicar v-bind: class con condicional y con objetos -->
+				<li
+					class="uppercase"
+					v-bind:class="{ orange: d.value === price, red: d.value < price, green: d.value > price  }"
+					v-for="d in pricesWithDays">
+					{{ d.day }} - {{ d.value }}
+				</li>
+			</ul>
+		</div>
+
+		<div class="right">
+			<!-- verificacion de vue -->
+			<pre>{{ $data }}</pre>
+		</div>
+	</div>
+
+	<script src="js/vue.js" type="text/javascript"></script>
+	<script src="js/02-manejo-de-eventos.js" type="text/javascript"></script>
+</body>
+</html>

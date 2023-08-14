@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio de practica 1</title>
+	<style>
+		html {
+		  padding: 20px;
+		  color: #3d3d3d;
+		}
+
+		.red {
+		  color: tomato;
+		}
+	</style>
+</head>
+<body>
+ 	<div id="app">
+	  <h1>
+	    Mis Cursos de Platzi💚
+	  </h1>
+	    <p>
+	      <input type="text" placeholder="Titulo del curso" v-model="title"/>
+	      <span>{{ title }}</span>
+	    </p>
+	    <p>
+	      <input type="number" placeholder="Horas" v-model="time"/>
+	      <span>{{ time }}</span>
+	    </p>
+	    <p>
+	      <button v-on:click="addCourse">Guardar Curso</button>
+	    </p>
+	  </fieldset>
+	  <div>
+	    <h3>Lista de Cursos</h3>
+	    <ul>
+	    	<li v-for="course in courses">
+	    		{{ course.title }} - {{ course.time }}
+	    	</li>
+	    </ul>
+	    <p class="red">Aun no has realizado cursos</p>
+	    <div>
+	      <hr/>
+	      <p>
+	        Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+	        <b>#NuncaParesDeAprender 💚</b>
+	      </p>
+	    </div>
+	  </div>
+	</div>
+
+    <!-- <div id="app">
+        <h1>
+          Mis Cursos de Platzi💚
+        </h1>
+          <p>
+            <input type="text" placeholder="Titulo del curso" v-model="title" />
+          </p>
+          <p>
+            <input type="number" placeholder="Horas" v-model="time" />
+          </p>
+          <p>
+            <button @click="addCourse">Guardar Curso</button>
+          </p>
+        </fieldset>
+        <div>
+          <h3>Lista de Cursos</h3>
+          <p class="red" v-if="courses.length==0" >Aun no has realizado cursos</p>
+          <div>
+            <ol>
+                <li v-for="course in courses" v-bind:key="course.title">
+                    {{ course.course }} - {{ course.time }} horas
+                </li>
+            </ol>
+            <hr/>
+            <p>
+              Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+              <b>#NuncaParesDeAprender 💚</b>
+            </p>
+          </div>
+        </div>
+    </div> -->
+	<script src="../../js/vue.js" type="text/javascript"></script>
+	<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app" class="container">
+		<!-- estilos dinamicos desde valor desde data con v-bind:style-->
+		<p>{{ head }}</p>
+		<div class="left" v-bind:style="{ background: '#' + color }">
+
+			<!-- atributos con v-bind son los elementos del props, que púede ser como se describe en el js uno por uno o con un objeto-->
+			<!-- componente CoinDetail -->
+			<coin-detail
+				v-on:change-color="updateColor"
+				v-bind:coin="btc">
+				<template v-slot:text>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est sed velit dolore reiciendis voluptatum, voluptatibus ut dolores. Doloribus dicta libero facilis a iste, enim ipsam facere eaque, vero quas harum.</p>
+				</template>
+				<template v-slot:link>
+					<a href="#">link!</a>
+				</template>
+			</coin-detail>
+
+			<!--cada componente por mas que sea el mismo, es aislado uno de otro-->
+			<coin-detail
+				v-on:change-color="updateColor"
+				v-bind:coin="btc">
+				<template v-slot:text>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est sed velit dolore reiciendis voluptatum, voluptatibus ut dolores. Doloribus dicta libero facilis a iste, enim ipsam facere eaque, vero quas harum.</p>
+				</template>
+				<template v-slot:link>
+					<a href="#">link!</a>
+				</template>
+			</coin-detail>
+		</div>
+
+		<div class="right">
+			<!-- verificacion de vue -->
+			<pre>{{ $data }}</pre>
+		</div>
+	</div>
+
+	<script src="js/vue.js" type="text/javascript"></script>
+	<script src="js/04-app-components.js" type="text/javascript"></script>
+</body>
+</html>
