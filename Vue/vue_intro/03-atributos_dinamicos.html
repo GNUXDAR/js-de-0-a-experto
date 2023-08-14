@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Intro de VUE</title>
+</head>
+<body>
+	<div id="app">
+		<h2>Atributos dinamicos</h2>
+		<!-- type range van de 0 a 100, por eso se multiplican (imagen mas grande) -->
+		<input type="range" v-model="ancho"> Ancho * 3
+		<br>
+		<input type="range" v-model="alto">	Alto * 3
+		<br>
+		{{ urlCompleta }}
+		<br>
+		<img :src="urlCompleta" alt="">
+
+		<!-- verificacion de vue -->
+		<pre>{{ $data }}</pre>
+	</div>
+
+	<script src="js/vue.js" type="text/javascript"></script>
+	<script src="js/atributos_dinamicos.js" type="text/javascript"></script>
+</body>
+</html>

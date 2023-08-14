@@ -1,0 +1,18 @@
+.container {
+	width: 100%;
+	padding: 25px;
+}
+
+.left {
+	width: 48.5%;
+	float: left;
+	margin: 2px;
+	background-color: #f5f5dc;
+}
+
+.right {
+	width: 48.5%;
+	float: left;
+	margin: 2px;
+	background-color: #f1f1dc;
+}

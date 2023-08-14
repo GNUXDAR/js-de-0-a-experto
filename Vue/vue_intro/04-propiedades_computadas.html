@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Intro de VUE</title>
+</head>
+<body>
+	<div id="app">
+		<h2>Renderizar elementos a una lista </h2>
+		<p v-for="(propiedad, valor) in usuario">{{ valor }} : {{ propiedad }}</p>
+			<li v-for="(tarea, index) in tareas">
+				<!-- propiedades de objetos -->
+				{{ index+1 }} - {{ tarea.nombre }} {{ tarea.tiempo }}
+			</li>
+
+		<p>filtrar lista por tiempo</p>
+		<input type="range" v-model="tiempo">{{ tiempo }}
+		<br>
+		<input type="search" v-model="busqueda" placeholder="Buscar tarea">
+		<br>
+		<ul>
+			<li v-for="tarea in filtroTareas">
+				{{ tarea.nombre }} {{ tarea.tiempo }}
+			</li>
+		</ul>
+		<hr>
+
+
+		<!-- verificacion de vue -->
+		<pre>{{ $data }}</pre>
+	</div>
+
+	<script src="js/vue.js" type="text/javascript"></script>
+	<script>
+		const app = new Vue({					//instancia
+			el: "#app", 			//parametro
+			data: {					//modelo
+				tareas: [
+					{nombre: 'Aprender js', tiempo: 3},
+					{nombre: 'Aprender vue', tiempo: 6},
+					{nombre: 'vuejar', tiempo: 10},
+					{nombre: 'campping', tiempo: 15},
+					{nombre: 'motero', tiempo: 20},
+					{nombre: 'trabajar', tiempo: 5},
+					{nombre: 'Estudiar', tiempo: 50},
+				],
+				usuario: {
+					username: 'gnuxdar',
+					role: 'root',
+				},
+				tiempo: 0,
+				busqueda: '',
+			},
+			computed: {				//propiedadas computadas, trabajan con valores del modelo
+				//filtrar tareas2
+				filtroTareas(){
+					//this.tareas2 es la propiedad del modelo data
+					//tarea.tiempo es la propiedad tiempo de cada una de las tareas
+					//this.tiempo es la propiedad del modelo data
+					//filter es un metodo que crea un nuevo array con los elementos que pasan el test
+					//includes es un metodo que determina si cierto valor se incluye en una propiedad de una matriz
+					//this.busqueda es la propiedad del modelo data
+					return this.tareas.filter(tarea => {
+						return this.tiempo >= tarea.tiempo && tarea.nombre.includes(this.busqueda);
+					})
+				}
+			},
+		});
+		//Vue.conf.devtools = true;
+
+	</script>
+</body>
+</html>
