@@ -1,5 +1,5 @@
 node --version
-npm --version}
+npm --version
 npm install -g @vue/cli
 vue create vue_exchange
 cd vue_exchange
