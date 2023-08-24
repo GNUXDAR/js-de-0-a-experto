@@ -16,14 +16,17 @@
   <CounterComposition2 />
 
   <h1>Directivas</h1>
-  <h4>v-if, v-else, v-show</h4>
+  <h2>v-if, v-else, v-show</h2>
   <ExampleSelective />
 
-  <h4>v-for</h4>
+  <h2>v-for</h2>
   <ExampleFor />
 
-  <h4>v-bind AND v-on</h4>
+  <h2>v-bind AND v-on</h2>
   <ClassBind />
+
+  <h2>v-model</h2>
+  <ModelForm />
 
 </template>
 
@@ -35,6 +38,7 @@
   import ExampleSelective from './components/ExampleSelective.vue';
   import ExampleFor from './components/ExampleFor.vue';
   import ClassBind from './components/ClassBind.vue';
+  import ModelForm from './components/ModelForm.vue';
 </script>
 
 <style>
