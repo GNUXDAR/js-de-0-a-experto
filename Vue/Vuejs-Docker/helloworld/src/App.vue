@@ -21,6 +21,10 @@
 
   <h4>v-for</h4>
   <ExampleFor />
+
+  <h4>v-bind AND v-on</h4>
+  <ClassBind />
+
 </template>
 
 <script lang="ts" setup>
@@ -30,6 +34,7 @@
   import PostContainer from './components/PostContainer.vue';
   import ExampleSelective from './components/ExampleSelective.vue';
   import ExampleFor from './components/ExampleFor.vue';
+  import ClassBind from './components/ClassBind.vue';
 </script>
 
 <style>
