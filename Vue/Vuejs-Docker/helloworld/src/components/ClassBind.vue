@@ -6,7 +6,7 @@
 -->
 <template>
     <p v-bind:class="{'danger': hasError}">El mensaje se ha enviado satisfactoriamente.</p>
-    <p v-bind:style="{'background-color': 'orange', color: myColor}">El mensaje se ha enviado satisfactoriamente.</p>
+    <p v-bind:style="{'background-color': myColor, color: '#fff'}">El mensaje se ha enviado satisfactoriamente.</p>
     <button v-on:click="handleClick">Cambiar color</button>
 
 
