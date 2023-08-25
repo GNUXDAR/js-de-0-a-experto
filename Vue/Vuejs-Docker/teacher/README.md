@@ -1,4 +1,5 @@
 # teacher
+Practica de manera un poco mas profunda con las directivas de de Vue, aplicandola a un formulario de registro de datos de una persona y de una lista de materias.
 
 ## Project setup
 ```

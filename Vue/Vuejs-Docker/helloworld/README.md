@@ -1,4 +1,14 @@
 # helloworld
+Conceptos basicos de Vue, uso de Options API y Composition API, el uso de directivas basicas.  
+
+    v-if
+    v-else
+    v-show
+    v-for
+    v-bind
+    v-on
+    v-model
+
 
 ## Project setup
 ```
