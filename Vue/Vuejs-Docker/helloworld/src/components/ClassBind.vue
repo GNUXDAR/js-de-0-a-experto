@@ -21,7 +21,7 @@ export default defineComponent({
         let hasError = true;
         let myColor = ref('green')
 
-        const random = (max) => Math.floor(Math.random() * max);
+        const random = (max: number) => Math.floor(Math.random() * max);
         const handleClick = () => { myColor.value= `rgb(${random(255)}, ${random(255)}, ${random(255)})`; }
         // const rndCol = ;
         return { hasError, myColor, handleClick }
