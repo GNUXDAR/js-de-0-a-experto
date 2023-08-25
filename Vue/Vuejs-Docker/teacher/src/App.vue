@@ -1,4 +1,7 @@
-<!-- hacer el CRUD -->
+<!-- 
+  agregar estilos
+  hacer el CRUD 
+-->
 <template>
     <TeacherForm />
 </template>
