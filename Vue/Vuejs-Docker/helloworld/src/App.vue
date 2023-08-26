@@ -31,6 +31,12 @@
   <h2>Ciclos de vida</h2>
   <CycleOption />  <!-- con el optin api -->
   <CycleComposition /> <!-- con el composition api -->
+  <code>ver en console.log</code>
+
+  <hr>
+  <h2>Props</h2>
+  <PostListVue />
+
 
 </template>
 
@@ -43,9 +49,13 @@
   import ExampleFor from './components/ExampleFor.vue';
   import ClassBind from './components/ClassBind.vue';
   import ModelForm from './components/ModelForm.vue';
+
   // ciclo de vida de un componente
   import CycleOption from './components/CycleOption.vue';
-import CycleComposition from './components/CycleComposition.vue';
+  import CycleComposition from './components/CycleComposition.vue';
+
+  // comunicacion vertical y el uso de props
+  import PostListVue from './components/PostList.vue';
 </script>
 
 <style>
