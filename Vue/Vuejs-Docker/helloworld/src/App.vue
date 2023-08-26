@@ -28,6 +28,10 @@
   <h2>v-model</h2>
   <ModelForm />
 
+  <h2>Ciclos de vida</h2>
+  <CycleOption />  <!-- con el optin api -->
+  <CycleComposition /> <!-- con el composition api -->
+
 </template>
 
 <script lang="ts" setup>
@@ -39,6 +43,9 @@
   import ExampleFor from './components/ExampleFor.vue';
   import ClassBind from './components/ClassBind.vue';
   import ModelForm from './components/ModelForm.vue';
+  // ciclo de vida de un componente
+  import CycleOption from './components/CycleOption.vue';
+import CycleComposition from './components/CycleComposition.vue';
 </script>
 
 <style>
