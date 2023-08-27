@@ -35,7 +35,7 @@
 
   <hr>
   <h2>Props</h2>
-  <PostListVue />
+  <PostList />
 
 
 </template>
@@ -55,7 +55,7 @@
   import CycleComposition from './components/CycleComposition.vue';
 
   // comunicacion vertical y el uso de props
-  import PostListVue from './components/PostList.vue';
+  import PostList from './components/PostList.vue';
 </script>
 
 <style>

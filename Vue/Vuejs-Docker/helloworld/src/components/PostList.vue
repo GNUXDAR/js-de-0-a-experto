@@ -7,13 +7,13 @@
 
         <!-- enviar dato al componente hijo "PostDetail" mediante las props title="elm.title" content="elm.content" img="mi-img.png" -->
         <!-- Comunicacion Descendiente -->
-        <PostDetailVue v-for="elm in info" :key="elm.title" :title="elm.title" :content="elm.content" />
+        <PostDetail v-for="elm in info" :key="elm.title" :title="elm.title" :content="elm.content" />
     </div>
 
 </template>
 
 <script lang="ts" setup>
-  import PostDetailVue from './PostDetail.vue';
+  import PostDetail from './PostDetail.vue';
 
   interface Post {
     title: string,
