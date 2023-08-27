@@ -1,12 +1,33 @@
 <template>
     <div class="post">
-        <h3>Titulo</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias, obcaecati soluta ea quae, ullam pariatur debitis fugit doloremque quia veniam? Assumenda temporibus, accusantium vel sapiente accusamus inventore rem voluptate.</p>
+        <h3>{{ props.title }}</h3>
+        <p>{{ props.content }}</p>
+        <img src="" alt="">
     </div>
     
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+    name: 'PostDetail',
+    props: {
+        // validando las props, con TypeScript
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            content: String,
+            required:false,
+            default: "Aqui debes escribir tu contenido"
+        }
+    },
+    setup(props) {
+        // 
+        return { props }
+    },
+})
 </script>
 
 <style scoped>
