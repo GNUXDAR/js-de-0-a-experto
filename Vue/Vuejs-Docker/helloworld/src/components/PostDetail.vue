@@ -6,8 +6,8 @@
     </div>
     
 </template>
-
-<script lang="ts">
+<!-- composition API definiendo setup -->
+<!-- <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'PostDetail',
@@ -28,6 +28,20 @@ export default defineComponent({
         return { props }
     },
 })
+</script> -->
+
+<!-- composition API -->
+<script setup> 
+import { ref, defineProps } from 'vue';
+
+const props = defineProps({
+  title: String,
+  content: {
+    type: String,
+    default: "Aqui debes escribir tu contenido"
+  },
+  imageSrc: String  // Agrega la prop imageSrc si la necesitas
+});
 </script>
 
 <style scoped>
