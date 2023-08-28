@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <PostDetail v-for="elm in info" :key="elm.id" :title="elm.title" :content="elm.content" />
+        <PostDetail v-for="elm in info" :key="elm.id" 
+        :title="elm.title" :content="elm.content" 
+        @sayHi="showAlert" />
     </div>
 </template>
 
@@ -43,7 +45,11 @@ export default defineComponent({
                 content: "Texto de post 4"
             }]
 
-            return { info };
+        function showAlert(msg:string) {
+            alert(msg)
+        }
+
+            return { info, showAlert };
     }
 });
 </script>
