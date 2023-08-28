@@ -1,5 +1,7 @@
 # basic-vue
+Teneindo el primer contacto con Vue y aplicando lso conceptos basicos
 
+<img src="./img/basic-vue.png">
 ## Project setup
 ```
 npm install

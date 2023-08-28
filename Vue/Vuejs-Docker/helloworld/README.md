@@ -9,6 +9,7 @@ Conceptos basicos de Vue, uso de Options API y Composition API, el uso de direct
     v-on
     v-model
 
+<img src="./img/helloworld.png">
 
 ## Project setup
 ```

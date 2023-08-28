@@ -1,3 +1,4 @@
+<img src="./img/vue3-536x500.png">
 # ¿Que es Vue.js?
 Vue.js, comúnmente referido como Vue, es un marco de desarrollo de código abierto utilizado para construir interfaces de usuario interactivas y dinámicas en aplicaciones web. Desarrollado por Evan You y lanzado por primera vez en 2014, Vue.js se ha vuelto cada vez más popular en la comunidad de desarrollo web debido a su facilidad de uso, rendimiento eficiente y enfoque centrado en el desarrollo progresivo.
 Proporciona un modelo de programación declarativo y basado en componentes que lo ayuda a desarrollar interfaces de usuarios de manera eficiente, ya sea simple o complejas.

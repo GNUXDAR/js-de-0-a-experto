@@ -1,6 +1,7 @@
 # teacher
 Practica de manera un poco mas profunda con las directivas de de Vue, aplicandola a un formulario de registro de datos de una persona y de una lista de materias.
-
+Haciendo uso de v-for y demas directivas.
+<img src="./img/teacher.png">
 ## Project setup
 ```
 npm install
