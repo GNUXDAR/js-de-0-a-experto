@@ -33,7 +33,7 @@ export default defineComponent({
 <!-- composition API -->
 <script setup> 
 import { ref, defineProps } from 'vue';
-
+// aqui recibe la informacio que el padre le envia
 const props = defineProps({
   title: String,
   content: {
