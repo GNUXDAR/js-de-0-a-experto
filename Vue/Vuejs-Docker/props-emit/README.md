@@ -1,4 +1,7 @@
-# props
+# props-emit
+Es una practica para el uso de props y emit y como es su funcionamiento
+
+<img src="./img/props.png">
 
 ## Project setup
 ```
