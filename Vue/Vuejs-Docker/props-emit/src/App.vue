@@ -14,6 +14,10 @@
 
   <p>Las propiedades computadas son un tipo de propiedad especial que se declara como una función, y que se ejecuta cuando accedemos a la propiedad con dicho nombre.</p>
   <ComputedExample />
+
+  <hr>
+  <h2>Ejercicio de impuestos</h2>
+  <ComputedFactures />
 </template>
 
 <script lang="ts">
@@ -21,11 +25,15 @@ import { defineComponent } from 'vue';
 import PostList from './components/PostList.vue'
 import ComputedExample from './components/ComputedExample.vue';
 
+// ejercicio
+import ComputedFactures from './components/ComputedFactures.vue';
+
 export default defineComponent({
   name: 'App',
   components: {
     PostList,
-    ComputedExample
+    ComputedExample,
+    ComputedFactures
 }
 });
 </script>
