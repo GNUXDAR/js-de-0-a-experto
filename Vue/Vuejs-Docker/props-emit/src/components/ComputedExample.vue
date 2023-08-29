@@ -2,6 +2,9 @@
     <div>
         <!-- revertir el texto que pasemos -->
         <input type="text" v-model="message">
+        <p class="counter">
+            {{ characterCount }}/200
+        </p>
         <br>
         <code>Revertir el texto que se escriba aca, mediante una propiedad computada</code>
         <h3>{{ reverse }}</h3>
@@ -33,9 +36,13 @@
     export default defineComponent({
         name: 'ComputedExample',
         setup() {
-            let message:Ref<string> = ref('aa')
+            let message:Ref<string> = ref('')
             const reverse = computed(()=> message.value.split('').reverse().join(''))
-            return { message, reverse }
+            const newItem = ref('')
+            const characterCount = computed(()=>{
+                return message.value.length
+            })
+            return { message, reverse, characterCount }
         }
 
     })
