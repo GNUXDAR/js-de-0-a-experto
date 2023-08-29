@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent, Ref, ref } from 'vue';
 
 export default defineComponent({
@@ -43,6 +43,34 @@ export default defineComponent({
     }
 })
 
+</script> -->
+
+<!-- definiendo con Compositions API setup -->
+<script lang="ts" setup>
+import { defineProps, defineEmits, Ref, ref } from 'vue';
+
+    const props = defineProps({
+        id: Number,
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: false,
+            dafault: "Aqui contenido por defecto"
+        }
+    })
+
+    const emit = defineEmits(['sayHi']);
+
+    const handleClick = () => {
+                // alert("Hola desde el hijo")
+                // emit("sayHi", "Hola")
+                emit("sayHi", message.value)
+            }
+
+    let message:Ref<string> = ref("")
 </script>
 
 <style scoped>
