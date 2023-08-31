@@ -3,6 +3,12 @@
         <span v-font-size>Directivas Personalizadas</span>
         <br>
         <span v-custom-size="60">Directivas Personalizadas</span>
+        <br>
+        <span v-custom-size-other:xl>Directivas Personalizadas</span>
+        <br>
+        <span v-custom-arg.red>Directivas Personalizadas</span>
+        <br>
+        <span v-custom-arg.xl.blue>Directivas Personalizadas</span>
 
         <p>En Vue 3, puedes crear directivas personalizadas para extender la funcionalidad de Vue.js según tus necesidades específicas. Las directivas personalizadas te permiten interactuar directamente con el DOM, modificar elementos, escuchar eventos y aplicar comportamientos personalizados a elementos HTML. Aquí hay una descripción general de cómo puedes crear una directiva personalizada en Vue 3:        </p>
         
