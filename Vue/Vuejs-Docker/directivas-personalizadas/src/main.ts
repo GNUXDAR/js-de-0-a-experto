@@ -4,8 +4,9 @@ import App from './App.vue'
 // estructura de directiva personalizada
 const app = createApp(App)
 
+// directiva simple
 app.directive(
-    'font-size', // nombre de mi directiva
+    'font-size', // nombre de mi directiva personalizada
     {
         beforeMount: (el) => {
             el.style.fontSize = '2em'
@@ -15,7 +16,7 @@ app.directive(
     }
     )
 
-// con binding
+// directiva simple con binding
 app.directive(
     'custom-size', // nombre de mi directiva
     {
@@ -25,7 +26,7 @@ app.directive(
     }
 )
 
-// con argumentos
+// directiva con argumentos
 app.directive(
     'custom-size-other', // nombre de mi directiva
     {
@@ -43,7 +44,6 @@ app.directive(
                     break
                 case 'xl':
                     size = 45
-
             }
             el.style.fontSize = size + 'px'
         }
@@ -52,7 +52,7 @@ app.directive(
 
 // con modificadores
 app.directive(
-    'custom-arg', // nombre de mi directiva
+    'custom-mod', // nombre de mi directiva
     {
         beforeMount: (el, binding) => {
             let size = 18
