@@ -5,7 +5,7 @@
       Los servicios se utilizan para separar la logica de la vista, para mantener un codigo limpio y mantenible
     </p>
 
-    <ul>
+    <ul class="posts">
       <li v-for="(post, index) in posts" :key="index">
         <a href="">{{ post.title }}</a>
       </li>
@@ -50,5 +50,17 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.posts {
+  width: 95vw;
+  height: 75px;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.posts li {
+  padding: 10px;
+  width: 100%;
 }
 </style>
