@@ -57,3 +57,12 @@ Este es el nombre de la imagen que le he dado en este caso
 
 ## basic-vue
 Este es el nombre del proyecto vue
+
+# Instalar Pre Procesadores CSS (sass)
+    npm install -D sass-loader sass  
+    ó  
+    npm install -D less-loader less  
+
+# Instalar Framework css (bootstrap)
+
+        npm install --save bootstrap  
