@@ -77,6 +77,9 @@ En resumen, los servicios en Vue.js se utilizan para encapsular la lógica de ne
 # Other
 uso de Interface
 
+# Instalar Pre Procesadores CSS (sass)
+npm install -D sass-loader sass
+
 ## Project setup
 ```
 npm install
