@@ -4,6 +4,13 @@
     <p>
       Los servicios se utilizan para separar la logica de la vista, para mantener un codigo limpio y mantenible
     </p>
+    <p>
+      <a href="https://arturocabrera.com">
+        <button class="btn btn-success">
+          Boton con Bootstrap
+        </button>
+      </a>
+    </p>
 
     <ul class="posts">
       <li v-for="(post, index) in posts" :key="index">
