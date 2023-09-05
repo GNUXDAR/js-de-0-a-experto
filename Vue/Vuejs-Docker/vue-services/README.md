@@ -79,6 +79,8 @@ uso de Interface
 
 # Instalar Pre Procesadores CSS (sass)
 npm install -D sass-loader sass
+ó
+npm install -D less-loader less
 
 ## Project setup
 ```
