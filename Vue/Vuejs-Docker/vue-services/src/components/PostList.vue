@@ -51,7 +51,8 @@ li {
 }
 a {
   // color: #42b983;
-  color: $color;
+  // color: $color; //variable local de scss
+  color: $green; //variable global scss
 }
 
 .posts {
