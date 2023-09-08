@@ -2,6 +2,8 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import WebView from '../views/WebView.vue'
+import BlogView from '../views/BlogView.vue'
+import PostView from '../views/PostView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/about',
+    path: '/about-us',
     name: 'about',
     component: AboutView
   },
@@ -18,6 +20,17 @@ const routes: Array<RouteRecordRaw> = [
     path: '/web',
     name: 'web',
     component: WebView
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: BlogView
+  },
+  {
+    // parametros dinamicos
+    path: '/blog/:postid',
+    name: 'post',
+    component: PostView
   }
 ]
 
