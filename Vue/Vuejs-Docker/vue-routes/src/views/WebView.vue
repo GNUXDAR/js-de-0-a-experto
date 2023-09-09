@@ -1,3 +1,4 @@
+<!-- componente para mostrar las webs -->
 <template>
   <div class="about">
     <h1>Mis Web's</h1>
