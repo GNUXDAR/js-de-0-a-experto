@@ -20,8 +20,18 @@
   <p>
     En resumen, un "router" en el contexto de Vue.js se refiere a Vue Router, una biblioteca que facilita la gestión de la navegación y las rutas en una aplicación web desarrollada con Vue.js. Esta herramienta es esencial para crear aplicaciones de una sola página con múltiples vistas y una experiencia de usuario fluida.
   </p>
+
+  <p>
+    mala practiva: el uso de router-link to="/about"
+    <br>
+    buena practiva: router-link  :to="{name: 'post', params: {postid:1}}"
+  </p>
   </div>
 </template>
+
+<script lang="ts" setup>
+
+</script>
 
 <style scoped lang="scss">
 $colorLetter: #0c693e;
