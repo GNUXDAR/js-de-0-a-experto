@@ -70,20 +70,27 @@ li {
   li {
     padding: 10px;
     width: 100%;
+
     a {
       text-decoration: none;
       color: $primaryColor;
       cursor: pointer;
-    }
-    a:hover {
-      color: #fff;
-    }
-  }
 
-  li:hover {
-    background-color: $primaryColor;
-    color: white;
+      &:hover {
+        color: #fff; // Cambia el color del texto a blanco al hacer hover en el enlace
+      }
+    }
+
+    &:hover {
+      background-color: $primaryColor;
+    }
+
+    &:hover a {
+      color: #fff; // Cambia el color del texto a blanco al hacer hover en el <li>
+    }
   }
 }
+
+
 
 </style>
