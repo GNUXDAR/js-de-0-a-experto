@@ -1,5 +1,18 @@
 # vue-auth
 
+## Install Bootstrap
+```
+npm install --save bootstrap  
+npm install --save @popperjs/core  
+```
+
+## import Bootstrap
+./src/main.ts
+
+```
+import "bootstrap/dist/css/bootstrap.min.css"  
+import "bootstrap"  
+```
 ## Project setup
 ```
 npm install
