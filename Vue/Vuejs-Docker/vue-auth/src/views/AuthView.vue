@@ -10,7 +10,7 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2" @click.prevent="authUser">Submit</button>
             <!-- {{ email }}
             {{ password }} -->
         </form>
@@ -20,9 +20,23 @@
 
 <script lang="ts" setup>
 import { ref, Ref } from 'vue'
+import AuthService from '@/services/AuthService';
 
     let email:Ref = ref("")
     let password:Ref = ref("")
+
+    const authUser = async ()=> {
+        const auth = new AuthService()
+        const success = await auth.login(email.value, password.value)
+
+        if(success) {
+            alert('Exito!')
+        }else{
+            alert('Login Incorrecto')
+        }
+    }
+
+
 
 </script>
 
