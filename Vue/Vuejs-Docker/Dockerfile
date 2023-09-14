@@ -9,8 +9,8 @@ RUN npm install -g http-server
 WORKDIR /app
 
 # Instalar las herramientas necesarias
-# RUN npm install -g npm@6.14.18
-RUN npm install -g npm@latest
+RUN npm install -g npm@6.14.18
+# RUN npm install -g npm@latest
 RUN npm install -g @vue/cli
 
 EXPOSE 8080
