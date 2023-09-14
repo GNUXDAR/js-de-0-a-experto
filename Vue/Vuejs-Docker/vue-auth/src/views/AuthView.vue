@@ -1,5 +1,5 @@
 <template>
-    <h1>Auth View</h1>
+    <h1>Auth View with Backend</h1>
     <div class="container">
         <form>
             <div class="mb-3">
