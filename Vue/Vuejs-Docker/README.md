@@ -3,6 +3,7 @@
 ## Proyectos
 [components, vue-router, sevices, etc](https://github.com/GNUXDAR/js-de-0-a-experto/tree/master/Vue/Vuejs-Docker/vue-services)  
 
+[Autenticacion: firebase, social login](./vue-auth/)
 
 ## Creamos un Dockerfile
 
