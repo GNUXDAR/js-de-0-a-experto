@@ -10,5 +10,9 @@
       <p>https://hfp69ilv.directus.app/auth/login</p>
       <p><b>user:</b> testuser@gogodev.net</p>
       <p><b>pass:</b> 12345678</p>
+
+      <h3>Auth with Firebase</h3>
+      <p><b>user:</b> gnuxdar@gmail.com</p>
+      <p><b>pass:</b> 1234567</p>
   </div>
 </template>
