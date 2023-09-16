@@ -27,6 +27,13 @@ initializeApp(firebaseConfig);
 
 createApp(App).use(router).mount('#app')
 ```
+
+## Link config Login Social
+[Google](https://console.firebase.google.com/)  
+[Facebook](https://developers.facebook.com/)  
+[Twitter](https://developer.twitter.com/)  
+[Github](https://github.com/settings/developers)
+
 ## Install Bootstrap
 ```
 npm install --save bootstrap  
