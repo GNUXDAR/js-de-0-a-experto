@@ -4,6 +4,7 @@
     <router-link :to="{name: 'auth'}">Login / Register</router-link> |
     <router-link to="/firebase">Auth with Firebase</router-link> |
     <router-link to="/social">Auth with Social login</router-link> |
+    <router-link to="/aws">Auth with AWS</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
