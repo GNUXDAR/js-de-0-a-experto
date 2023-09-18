@@ -33,6 +33,8 @@ createApp(App).use(router).mount('#app')
 [Facebook](https://developers.facebook.com/)  
 [Twitter](https://developer.twitter.com/)  
 [Github](https://github.com/settings/developers)
+[AWS](https://portal.aws.amazon.com/billing/signup)
+[Amplify](https://docs.amplify.aws/start/getting-started/installation/q/integration/vue/#configure-the-amplify-cli)
 
 ## Install Bootstrap
 ```
@@ -46,6 +48,19 @@ npm install --save @popperjs/core
 ```
 import "bootstrap/dist/css/bootstrap.min.css"  
 import "bootstrap"  
+```
+
+## Install Amplify to login with AWS (Incomplete)
+```
+npm install -g @aws-amplify/cli
+
+amplify configure
+amplify init
+amplify add auth
+amplify push
+
+npm install aws-amplify @aws-amplify/ui-vue
+amplify console
 ```
 ## Project setup
 ```
