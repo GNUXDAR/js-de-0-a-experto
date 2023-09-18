@@ -8,27 +8,47 @@
 </template>
 
 <script lang="ts">
-// uso del mapeo
-import { defineComponent } from 'vue';
-import { mapMutations, mapState, mapGetters } from 'vuex'
+// composition API
+import { defineComponent, computed } from 'vue';
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
-  computed: {
-    ...mapState(['counter']),
-    ...mapGetters(['times2'])
-  },
-  methods: {
-    ...mapMutations(['setCounter']),
-    increment() {
-      this.setCounter(this.counter + 1)
-    }
-  },
-});
+    props: {
+      msg: String,
+    },
+  setup() {
+    const store = useStore()
+    const counter = computed(() => store.state.counter)
+    const times2 = computed(()  => store.getters.times2)
+    const increment = () => store.commit('setCounter', counter.value +1)
+    return { counter, times2, increment}
+  }
+})
 
+// ------------------------------------------------------
+// uso del mapeo
+// import { defineComponent } from 'vue';
+// import { mapMutations, mapState, mapGetters } from 'vuex'
+
+// export default defineComponent({
+//   name: 'HelloWorld',
+//   props: {
+//     msg: String,
+//   },
+//   computed: {
+//     ...mapState(['counter']),
+//     ...mapGetters(['times2'])
+//   },
+//   methods: {
+//     ...mapMutations(['setCounter']),
+//     increment() {
+//       this.setCounter(this.counter + 1)
+//     }
+//   },
+// });
+
+// ------------------------------------------------------
 // uso del $store
 // import { defineComponent } from 'vue';
 
