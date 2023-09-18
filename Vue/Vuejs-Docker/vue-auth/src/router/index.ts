@@ -26,11 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'social',
     component: SocialView
   },
-  {
-    path: '/aws',
-    name: 'aws',
-    component: AwsView
-  },
+  // {
+  //   path: '/aws',
+  //   name: 'aws',
+  //   component: AwsView
+  // },
   {
     path: '/about',
     name: 'about',

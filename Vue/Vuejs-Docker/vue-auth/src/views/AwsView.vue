@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <h1>Auth View with AWS</h1>
     <authenticator>
         <template v-slot="{user, signOut}">
@@ -18,4 +18,4 @@ import '@aws-amplify/ui-vue/styles.css'
 </script>
 
 <style>
-</style>
+</style> -->
