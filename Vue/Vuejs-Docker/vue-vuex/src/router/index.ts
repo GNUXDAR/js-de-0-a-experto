@@ -8,6 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
+    path: '/',
+    redirect: to => {
+      return { name: 'myComponent'}  //redirecion a una nueva ruta
+    } 
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
