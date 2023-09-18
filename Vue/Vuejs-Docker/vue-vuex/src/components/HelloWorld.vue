@@ -8,7 +8,9 @@
 </template>
 
 <script lang="ts">
+// uso del mapeo
 import { defineComponent } from 'vue';
+import { mapMutations, mapState, mapGetters } from 'vuex'
 
 export default defineComponent({
   name: 'HelloWorld',
@@ -16,23 +18,43 @@ export default defineComponent({
     msg: String,
   },
   computed: {
-    counter():number {
-      // read the counter from store
-      return this.$store.state.counter
-    },
-    times2():number {
-      // read the times2 from store
-      return this.$store.getters.times2
-    }
+    ...mapState(['counter']),
+    ...mapGetters(['times2'])
   },
   methods: {
+    ...mapMutations(['setCounter']),
     increment() {
-      // call the setCounter mutation from store
-      // para hacer una modificacion lo hacemos con el metodo commit
-      this.$store.commit('setCounter', this.counter + 1)
+      this.setCounter(this.counter + 1)
     }
   },
 });
+
+// uso del $store
+// import { defineComponent } from 'vue';
+
+// export default defineComponent({
+//   name: 'HelloWorld',
+//   props: {
+//     msg: String,
+//   },
+//   computed: {
+//     counter():number {
+//       // read the counter from store
+//       return this.$store.state.counter
+//     },
+//     times2():number {
+//       // read the times2 from store
+//       return this.$store.getters.times2
+//     }
+//   },
+//   methods: {
+//     increment() {
+//       // call the setCounter mutation from store
+//       // para hacer una modificacion lo hacemos con el metodo commit
+//       this.$store.commit('setCounter', this.counter + 1)
+//     }
+//   },
+// });
 // Importé defineComponent de Vue correctamente.
 // Usé this.$store.state.counter para acceder al estado counter del store.
 // Usé this.$store.getters.times2 para acceder al getter times2 del store.
