@@ -14,5 +14,11 @@
       <h3>Auth with Firebase</h3>
       <p><b>user:</b> gnuxdar@gmail.com</p>
       <p><b>pass:</b> 1234567</p>
+
+      <h3>Sitios para configurar el proyecto</h3>
+      <a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a> <br>
+      <a href="https://developers.facebook.com/">https://developers.facebook.com/</a> <br>
+      <a href="https://developer.twitter.com/">https://developer.twitter.com/</a> <br>
+      <a href="https://github.com/settings/developers">https://github.com/settings/developers</a> <br>
   </div>
 </template>
