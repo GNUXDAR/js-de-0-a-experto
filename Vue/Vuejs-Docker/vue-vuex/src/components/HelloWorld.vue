@@ -21,6 +21,7 @@ export default defineComponent({
     const store = useStore()
     const counter = computed(() => store.state.counter)
     const times2 = computed(()  => store.getters.times2)
+    // para hacer una modificacion lo hacemos con el metodo commit
     const increment = () => store.commit('setCounter', counter.value +1)
     return { counter, times2, increment}
   }
@@ -70,7 +71,7 @@ export default defineComponent({
 //   methods: {
 //     increment() {
 //       // call the setCounter mutation from store
-//       // para hacer una modificacion lo hacemos con el metodo commit
+//       
 //       this.$store.commit('setCounter', this.counter + 1)
 //     }
 //   },
