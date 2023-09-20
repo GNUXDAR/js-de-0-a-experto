@@ -1,18 +1,19 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App + pinia"/>
+  <h3>{{ store.count }} x 2 = {{ store.times2 }}</h3>
+  <button @click="store.increment(2)">Increment</button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import HelloWorld from './components/HelloWorld.vue';
+import { useCounterStore } from './store/counter'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const store = useCounterStore()
+
+
+
+
 </script>
 
 <style>
