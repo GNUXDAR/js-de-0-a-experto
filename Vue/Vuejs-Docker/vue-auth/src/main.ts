@@ -8,7 +8,8 @@ import "bootstrap"
 
 import { initializeApp } from "firebase/app";
 
-import { VueCookies } from 'vue-cookies';
+import VueCookies from 'vue-cookies'
+// import VueSession from 'vue-session'
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -27,7 +28,9 @@ initializeApp(firebaseConfig);
 
 const app = createApp(App);
 
+// app.use(router).use(VueCookies, {expires: '1d'}).use(VueSession).mount('#app');
 app.use(router).use(VueCookies, {expires: '1d'}).mount('#app');
+
 
 // use(VueCookies, {
 //     expires: '1d',
@@ -52,3 +55,18 @@ app.use(router).use(VueCookies, {expires: '1d'}).mount('#app');
 
 // cuales tengo guardadas?
 // $cookies.keys()
+
+// SESSION
+// iniciar una session
+// $session-set('auth', 1000)
+
+// recuperar una session
+// $session.get('auth')
+
+// session.id()
+
+// renovar una session
+// $session.renew()
+
+// eliminar una session
+// $session.destroy()
