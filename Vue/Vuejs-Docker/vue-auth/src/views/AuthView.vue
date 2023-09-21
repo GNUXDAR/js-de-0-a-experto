@@ -36,8 +36,6 @@ import AuthService from '@/services/AuthService';
         }
     }
 
-
-
 </script>
 
 <style>
