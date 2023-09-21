@@ -14,7 +14,8 @@
     "firebase": "^10.4.0",
     "vue": "^3.2.13",
     "vue-cookies": "^1.8.3",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue-session": "^1.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
