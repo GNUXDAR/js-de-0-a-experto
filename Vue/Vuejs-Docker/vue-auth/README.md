@@ -67,6 +67,11 @@ amplify console
 ```
 npm install vue-cookies
 ```
+
+## Work with session
+```
+npm install vue-session
+```
 ## Project setup
 ```
 npm install
