@@ -62,6 +62,11 @@ amplify push
 npm install aws-amplify @aws-amplify/ui-vue
 amplify console
 ```
+
+## Work with cookies
+```
+npm install vue-cookies
+```
 ## Project setup
 ```
 npm install
