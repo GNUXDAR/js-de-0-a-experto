@@ -4,29 +4,10 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
-
-  <input type="text">
-  <button @click="senToServer">Enviar</button>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 
-let note = ref('')
-const senToServer = async () => {
-  const rawResponde = await fetch('https://xxxxendpointxxxx.com', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': 'Beaer  xxxxxxtockenxxxxx'
-    },
-    body: JSON.stringify({ note: note.value })
-  })
-
-  const response = await rawResponde.json()
-  
-}
 </script>
 
 
