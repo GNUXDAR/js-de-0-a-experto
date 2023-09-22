@@ -6,5 +6,9 @@
 
     <h2>Protecion de Rutas</h2>
     <p>dar acceso solo a usuarios autenticados y con permisos</p>
+
+    <h2>Rutas</h2>
+    <p>/login</p>
+    <p>/dashboard    (ruta que se necesita verificación)</p>
   </div>
 </template>
