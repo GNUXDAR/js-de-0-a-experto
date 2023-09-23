@@ -20,7 +20,7 @@ COPY ./app /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Instalamos las dependencias de PHP usando Composer
-RUN composer install
+# RUN composer install
 
 # Exponemos el puerto 9000 para el servidor PHP-FPM
 EXPOSE 9000

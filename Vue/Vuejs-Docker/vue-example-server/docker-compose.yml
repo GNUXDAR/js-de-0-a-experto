@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  laravel-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: proyecto-laravel
+    container_name: laravel-app
+    working_dir: /var/www/html
+    volumes:
+      # - ./app:/var/www/html
+      - ./:/var/www/html
+    ports:
+      - "80:80"
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=laravel_vue_db
+      - DB_USERNAME=root
+      - DB_PASSWORD= secret
+
+  # vue-app:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   image: proyecto-vue
+  #   container_name: vue-app
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend:/app
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - laravel-app
+
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=laravel_vue_db
+    ports:
+      - "3306:3306"
