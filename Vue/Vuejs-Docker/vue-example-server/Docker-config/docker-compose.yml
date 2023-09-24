@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  php-apache:
+    container_name: lv_example_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # env_file:
+    #   - ./docker/api.env
+    ports:
+      - "8001:80"
+    working_dir: /var/www/app
+    volumes:
+      - ../:/var/www/app
+  database:
+      image: mysql:5.7
+      # image: mysql:8.0.27
+      restart: no #always
+      container_name: lv_example_server_db
+      environment:
+        MYSQL_USER: root
+        MYSQL_PASSWORD: example
+        MYSQL_ROOT_PASSWORD: example
+        MYSQL_DATABASE: laravel_vue_db
+      # command: mysqld --sql-mode='NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' # to image: mysql:5.7
+      # command: sh -c "mysql -h localhost -u gnuxdar -pexample -e 'CREATE DATABASE IF NOT EXISTS laravel_db'"
+      ports:
+        - '3306:3306'
+      volumes:
+        - db-data:/var/lib/mysql
+volumes:
+  db-data:
