@@ -6,6 +6,17 @@ En este proyecto lo que haremos sera consumir la API del proyecto de laravel [La
 npm install pinia
 ```
 
+## Config Pinia
+```
+...
+import { createPinia } from 'pinia'
+
+const pinia = createPinia()
+const app = createApp(App)
+
+app.use(router).use(pinia).mount('#app')
+```
+
 ## Project setup
 ```
 npm install
