@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '@/views/LoginView.vue'
 import NoteCreateView from '@/views/NoteCreateView.vue'
@@ -12,7 +11,7 @@ import useAuth from '@/store/auth'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'noteList',
+    name: 'note',
     component: NoteListView,
     meta: {
       requiredAuth: true
