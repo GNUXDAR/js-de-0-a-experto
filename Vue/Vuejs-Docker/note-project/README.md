@@ -17,6 +17,15 @@ const app = createApp(App)
 app.use(router).use(pinia).mount('#app')
 ```
 
+## Install Bootstrap
+```
+npm install bootstrap
+npm install @popperjs/core
+```
+## Config Pinia
+```
+
+```
 ## Project setup
 ```
 npm install
