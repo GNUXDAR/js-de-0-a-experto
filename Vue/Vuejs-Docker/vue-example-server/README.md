@@ -11,7 +11,11 @@
 5. php artisan migrate
 6. levanta el servidor con php artisan serve
 
-
+# Para ver la IP
+```
+docker exec -ti lv_example_server bash
+cat /etc/hosts
+```
 # Rutas
 
 [POST] 127.0.0.1:8000/api/auth/register    -> Crear usuario por POST pasando name, email y password
