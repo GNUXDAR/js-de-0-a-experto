@@ -1,5 +1,5 @@
 # vue-escalable
-
+Haciendo uso de "layouts", "slots" y composables
 ## Project setup
 ```
 npm install
