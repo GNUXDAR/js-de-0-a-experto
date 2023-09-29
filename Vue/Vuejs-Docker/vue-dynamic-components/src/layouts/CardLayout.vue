@@ -1,13 +1,13 @@
 <template>
-    <h1>Table</h1>
+    <h1>Cards</h1>
     <div class="container">
-        <UserRow v-for="item in props.content" :key="item.name" :content="item" />
+        <UserCard v-for="item in props.content" :key="item.name" :content="item" />
     </div>
 </template>
 
 <script lang="ts" setup>
 import { defineProps } from 'vue'
-import UserRow from '@/components/UserRow.vue';
+import UserCard from '@/components/UserCard.vue';
 
 // "content", es el listado de usuarios
 const props = defineProps(['content'])
