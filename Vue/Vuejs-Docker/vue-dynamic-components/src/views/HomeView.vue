@@ -3,6 +3,8 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <h1>Listado de usuarios</h1>
 
+    <input type="text" placeholder="Buscar Usuario" v-model="search" @keyup="handleSearch">
+
     <div class="btn">
       <button @click="handleLayout(ListLayout)">Ver en lista</button>
       <button @click="handleLayout(CardLayout)">Ver en tarjetas</button>
@@ -10,20 +12,22 @@
     </div>
     <!-- hacemos con el tag component "dinamico" :is para definir el componente
     y le pasamos un props con el listado de users -->
-    <component :is="layout" :content="users" />
+    <component :is="layout" :content="filteredUsers" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, defineAsyncComponent } from 'vue'
 
-const CardLayout = defineAsyncComponent(() => import('@/layouts/CardLayouts.vue'))
+const CardLayout = defineAsyncComponent(() => import('@/layouts/CardLayout.vue'))
 const ListLayout = defineAsyncComponent(() => import('@/layouts/ListLayout.vue'))
 const TableLayout = defineAsyncComponent(() => import('@/layouts/TableLayout.vue'))
 
-const layout = ref(ListLayout)
+const layout = ref(ListLayout) //asignar un layout por defecto
 
 const handleLayout = (cmp) => layout.value = cmp
+
+const search = ref('')
 
 const users = ref([
   {
@@ -63,6 +67,14 @@ const users = ref([
   }
 ])
 
+// para que de inicio salgan todos los users
+const filteredUsers = ref([])
+filteredUsers.value = users.value
+
+const handleSearch = () => {
+  filteredUsers.value = users.value.filter(item => item.name.toLowerCase().includes(search.value.toLowerCase()))
+
+}
 </script>
 
 
