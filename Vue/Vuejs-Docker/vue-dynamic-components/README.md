@@ -1,7 +1,11 @@
 # vue-dynamic-components
+<img src="./img/vue-dynamic-components.png">
+Permite cargar y renderizar componentes de forma dinamica en funcion de ciertas condiciones o eventos en tu aplicacion. Esto es util cuando deseas cambiar la interfaz de usuario de forma dinamica (Ejm: Modo oscuro)
+
 Uso de componentes dinamicos, usualmente se utilizan para backoffice, mostrar data de diversas maneras o formatos.
 
-Estos compomentes e suelen agregar en una carpeta layout o en components
+Estos compomentes se suelen agregar en una carpeta layout o en components
+
 ## Project setup
 ```
 npm install
