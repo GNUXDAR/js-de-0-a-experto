@@ -1,5 +1,7 @@
 # vue-escalable
 Haciendo uso de "layouts", "slots" y composables
+
+calculo de la posicion de el cursor
 ## Project setup
 ```
 npm install
