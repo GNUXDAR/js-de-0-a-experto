@@ -5,6 +5,8 @@
 
 [Autenticacion: firebase, social login](./vue-auth/)
 
+[Componentes Dinamicos](./vue-dynamic-components/)
+
 ## Creamos un Dockerfile
 
     # Dockerfile para trabajar con Vue.js
