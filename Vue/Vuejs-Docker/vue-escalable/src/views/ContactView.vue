@@ -3,7 +3,7 @@
     <!-- #main es equivalente a utilizar v-slot:main -->
     <template #main>
         <h1>My Contact</h1>
-        <p>La posición La mouse X: {{ x }}</p> 
+        <p>La posición del mouse X: {{ x }}</p> 
         <p>La posición del mouse Y: {{ y }}</p> 
     </template>
     <template #aux>
