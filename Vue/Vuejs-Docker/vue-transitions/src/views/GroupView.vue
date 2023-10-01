@@ -5,7 +5,12 @@
     <button @click="handleNote">Save Note</button>
 
     <transition-group name="list" tag="ol">
-        <li v-for="note in notes" :key="note">{{ note }}</li>
+        <p>
+            <v-icon name="bi-file-code" />mostrando con icon
+        </p> 
+        <li v-for="note in notes" :key="note">
+            <v-icon name="pi-pikachu" scale="2" color="green" animation="wrench" hover="true" />{{ note }}
+        </li>
     </transition-group>
 </template>
 
