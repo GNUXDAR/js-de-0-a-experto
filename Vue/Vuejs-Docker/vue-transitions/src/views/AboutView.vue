@@ -11,5 +11,21 @@
     </p>
 
     <code>npm install oh-vue-icons</code>
+
+    <p>main.ts</p>
+    <code style="color: red;">
+      import { createApp } from 'vue' <br>
+      import App from './App.vue' <br>
+      import router from './router' <br>
+
+      import { OhVueIcon, addIcons } from "oh-vue-icons"; <br>
+      import { BiFileEarmarkCodeFill } from "oh-vue-icons/icons"; <br>  <!--paquete de icons de boostrap-->
+
+      addIcons(BiFileEarmarkCodeFill); <br>
+
+      const app = createApp(App) <br>
+      app.component("v-icon", OhVueIcon); <br>
+      app.use(router).mount('#app') <br>
+    </code>
   </div>
 </template>
