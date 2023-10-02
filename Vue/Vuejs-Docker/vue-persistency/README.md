@@ -1,5 +1,5 @@
 # vue-persistency
-Persistencia de datos
+Persistencia de datos con pinia, persistedstate, localstarage y watch
 
 ## persistencia con pinia
 ```
@@ -19,8 +19,63 @@ app.use(router).use(pinia).mount('#app')
 
 ```
 
-./store
-useStore.ts
+./src/store  
+useStore.ts  
+
+## Use persistedstate
+
+[pinia-plugin-persistedstate](https://github.com/prazdevs/pinia-plugin-persistedstate)
+
+* npm i pinia-plugin-persistedstate
+  
+  main.ts  
+
+```
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+
+const app = createApp(App)
+const pinia = createPinia()
+
+pinia.use(piniaPluginPersistedstate)
+app.use(router).use(pinia).mount('#app')
+```
+
+en el store, agregar...
+```
+...
+    actions: {
+        increment(val = 1) {
+            this.count += 1
+        }
+    },
+    persist: true,
+...
+```
+
+## Use localStorage
+
+/store
+```
+...
+    actions: {
+        // uso de localStorage 
+        init() {
+            const initCount = localStorage.getItem('count')
+            if(initCount) {
+                this.count = parseInt(initCount)
+            }
+        },
+        // fin de function init() para uso de localStorage 
+        increment(val = 1) {
+            this.count += 1
+            // uso de localStorage (nombre, valor)
+            localStorage.setItem('count', this.count.toString())
+        }
+    },
+...
+```
+
 ## Project setup
 ```
 npm install
