@@ -1,5 +1,5 @@
 # vue-persistency
-Persistencia de datos con pinia, persistedstate, localstarage y watch
+Persistencia de datos con pinia, el pugin persistedstate, localstorage, watch y wathEffect
 
 ## persistencia con pinia
 ```
