@@ -1,4 +1,5 @@
 <template>
+    <h2>Uso del plugin <a href="https://github.com/prazdevs/pinia-plugin-persistedstate">Persisted State</a> </h2>
     <h3>{{ store.count }}</h3>
     <button @click="store.increment(1)">Añadir</button>
 </template>
@@ -6,7 +7,6 @@
 <script lang="ts" setup>
 import { useExample } from '@/store/useExample'
 const store = useExample()
-store.init()
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
