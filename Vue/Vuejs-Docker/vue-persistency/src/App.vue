@@ -1,6 +1,10 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
+    <router-link :to="{name: 'local'}">LocalStorage</router-link> |
+    <router-link :to="{ name: 'watch' }">Watch - op</router-link> |
+    <router-link :to="{ name: 'watchcomposition' }">Watch - con</router-link> |
+    <router-link :to="{ name: 'watcheffect' }">WatchEffect</router-link> 
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
