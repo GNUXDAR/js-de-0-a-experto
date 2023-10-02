@@ -1,11 +1,35 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LocalView from '@/views/LocalView.vue'
+import WatchView from '@/views/WatchView.vue'
+import WatchEffectView from '@/views/WatchEffectView.vue'
+import WatchcoView from '@/views/WatchcoView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/local',
+    name: 'local',
+    component: LocalView
+  },
+  {
+    path: '/watch',
+    name: 'watch',
+    component: WatchView
+  },
+  {
+    path: '/watchcomposition',
+    name: 'watchcomposition',
+    component: WatchcoView
+  },
+  {
+    path: '/watcheffect',
+    name: 'watcheffect',
+    component: WatchEffectView
   },
   {
     path: '/about',
