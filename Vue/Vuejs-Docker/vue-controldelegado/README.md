@@ -1,7 +1,5 @@
 # vue-controldelegado
-* Control Delegado por Referencia
-* v-lazy
-* webpack chunk y code splitting
+Control Delegado por Referencia
 
 ## Project setup
 ```
