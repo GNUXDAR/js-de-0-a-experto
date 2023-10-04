@@ -1,4 +1,10 @@
 # vue-lazyload
+vue3-lazyload
+
+## install vue3-lazyload
+```
+npm install vue3-lazyload
+```
 
 ## Project setup
 ```
