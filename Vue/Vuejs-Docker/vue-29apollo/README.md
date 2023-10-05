@@ -1,5 +1,5 @@
 # vue-29apollo
-Conecatrse a un servicio de graphql con el cliente de Apollo
+Conectarse a un servicio de graphql con el cliente de [Apollo](../graph-apollo-for-vue-class/)
 
 [APOLLO](https://v4.apollo.vuejs.org/guide/)
 ## Install packages
@@ -26,6 +26,7 @@ const app = createApp(App)
 app.mount('#app')
 ```
 ## Install apollo-composable
+para uso de composition API
 ```
 npm i --save @vue/apollo-composable
 ```
@@ -35,6 +36,12 @@ main.ts
 ...
 import { DefaultApolloClient } from '@/vue/apollo-composable'
 
+```
+
+## Install apollo-option
+para uso de Option API
+```
+npm i --save @vue/apollo-option
 ```
 
 ## Project setup
