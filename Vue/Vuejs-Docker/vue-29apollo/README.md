@@ -1,5 +1,5 @@
 # vue-29apollo
-Conectarse a un servicio de graphql con el cliente de [Apollo](../graph-apollo-for-vue-class/)
+Conectarse a un servicio de graphql con el cliente de [Apollo](https://github.com/GNUXDAR/js-de-0-a-experto/blob/master/Vue/Vuejs-Docker/graph-apollo-for-vue-class)
 
 [APOLLO](https://v4.apollo.vuejs.org/guide/)
 ## Install packages
