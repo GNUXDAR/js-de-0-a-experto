@@ -1,27 +1,47 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h1>Comments</h1>
+  <div v-if="loading">
+    <h3>Loading..</h3>
+  </div>
+  <div v-else>
+    <ul>
+      <li v-for="(comment, index) in result.getAllComments" :key="index">
+        {{ comment.name }}
+        {{ comment.text }}
+      </li>
+    </ul>
+  </div>
+  <div v-if="error">
+    <h3 class="error">{{ error.message }}</h3>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+  import { defineComponent } from 'vue';
+  import { useQuery } from '@vue/apollo-composable';
+  import gql from 'graphql-tag'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+  export default defineComponent({
+    setup(){
+      const {result, loading, error} = useQuery(gql`
+        query {
+          getAllComments {
+            name
+            text
+          }
+        }
+      `)
+      return {
+        result, loading, error
+      }
+    }
+  })
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.error {
+  color: red;
 }
 </style>

@@ -3,6 +3,7 @@ import App from './App.vue'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 
+// Composition API
 // conexion para multiples clientes apollo
 // import { ApolloClients } from '@vue/apollo-composable'
 
