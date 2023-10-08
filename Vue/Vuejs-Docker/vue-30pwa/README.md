@@ -70,9 +70,17 @@ Recuerda que estos pasos asumen que tienes permisos para instalar software dentr
 ### Nota: 
 En caso de que te genere algun error, ejecuta el siguiente comando para que se redireccion a la IP del contenedor (verificar la IP del contendor)
 
-    ```
-    ./ngrok http 172.17.0.2:8080
-    ```
+```
+./ngrok http 172.17.0.2:8080
+```
+Si estás usando ngrok para exponer tu aplicación en un entorno de desarrollo y el problema persiste, intenta con la opción -host-header para establecer manualmente el encabezado Host:
+
+```
+./ngrok http -host-header=rewrite 172.17.0.2:8080
+```
+
+Esta opción de ngrok ajusta el encabezado Host para que coincida con el host esperado por tu aplicación.
+
 
 * Registrarse al servicio en el caso de no estarlo.
 ## Project setup
