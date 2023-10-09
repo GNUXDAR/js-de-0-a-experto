@@ -83,6 +83,32 @@ Esta opción de ngrok ajusta el encabezado Host para que coincida con el host es
 
 
 * Registrarse al servicio en el caso de no estarlo.
+
+## manifest
+
+En el caso de el manifest, una buena idea es copiar el manifest despues de ejecutar el ```npm run build```  y pegar en /public, este sera elq eu se modifique. Recordar vovler a recontruir despues de la modificacion con ```npm run build```
+
+Otra config es modificar el ./vue.config.js de la siguiente manera
+ ```
+ ...
+ module.exports = defineConfig({
+  ... ,
+  pwa: {
+   name: 'PWA',
+   themeColor: '#000',
+   backgroundColor: '#ccc',
+  }
+})
+ ```
+
+ en los atributos clave:valor, la clave debe representarse en camelCase
+
+## service-work
+Es el relacionado al rendimiento  
+./src/registerServiceWorker.ts
+
+[pwa](https://cli.vuejs.org/core-plugins/pwa.html#configuration)
+
 ## Project setup
 ```
 npm install
