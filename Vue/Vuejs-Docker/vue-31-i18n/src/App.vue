@@ -1,27 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h1>i18n plugin</h1>
+  <h2>{{ $t("message.hello", {name: username, surname: surname}) }}</h2>
+  <p>{{ $t("message") }}</p>
+
+  <p>{{ $t("message.products", {count: 8}) }}</p>
+  <p>{{ $t("message.comments", 8) }}</p>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const username = ref('Arturo')
+const surname = ref('Cabrera')
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
 </style>
