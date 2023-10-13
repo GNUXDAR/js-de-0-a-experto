@@ -1,6 +1,11 @@
 # vue-32-testing
-Pruebas en vue cob Cypress
+Pruebas en vue co Cypress E2E
+[Cypress](https://www.cypress.io/)
 
+## run test
+```
+npm run test:e2e
+```
 ## Project setup
 ```
 npm install

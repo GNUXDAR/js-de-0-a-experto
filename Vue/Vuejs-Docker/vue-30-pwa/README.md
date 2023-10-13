@@ -1,4 +1,4 @@
-# vue-30pwa
+# vue-30pwa (Error)
 PWA, o Progressive Web App, es una tecnología que combina lo mejor de las aplicaciones web y las aplicaciones nativas. Las PWAs se desarrollan utilizando tecnologías web estándar como HTML, CSS y JavaScript, pero ofrecen una experiencia de usuario similar a la de las aplicaciones nativas. 
 
 ```
