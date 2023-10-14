@@ -2,6 +2,12 @@
 Pruebas en vue co Cypress E2E
 [Cypress](https://www.cypress.io/)
 
+# PINIA
+```
+npm install pinia
+```
+para gestionar el estados globales de la aplicacion
+
 ## run test
 ```
 npm run test:e2e
