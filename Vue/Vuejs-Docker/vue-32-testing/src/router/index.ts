@@ -4,7 +4,7 @@ import CountView from '@/views/CountView.vue'
 import DetailView from '@/views/DetailView.vue'
 import LoginView from '@/views/LoginView.vue'
 
-import { useAuth } from '@/store/useAuth'
+// import { useAuth } from '@/store/useAuth'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,11 +16,6 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/count',
-    name: 'count',
-    component: CountView
-  },
-  {
     path: '/detail/:id',
     name: 'detail',
     component: DetailView,
@@ -29,7 +24,12 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: 'login',
+    path: '/count',
+    name: 'count',
+    component: CountView
+  },
+  {
+    path: '/login',
     name: 'login',
     component: LoginView
   },
@@ -46,16 +46,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
-
-router.beforeEach((to, from, next) => {
-  const store = useAuth()
-
-  if(!store.is_auth && to.meta.requireAuth) {
-    next('login')
-  }else{
-    next()
-  }
 })
 
 export default router

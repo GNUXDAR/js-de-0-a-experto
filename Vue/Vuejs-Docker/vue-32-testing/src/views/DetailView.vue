@@ -1,9 +1,8 @@
 <template>
     <div class="home">
         <img alt="Vue logo" src="../assets/logo.png">
-        <h1>Welcome to Your Vue.js + TypeScript App</h1>
 
-        <h1>{{post.title }}</h1>
+        <h1>{{ post.title }}</h1>
         <p>{{ post.body }}</p>
 
         <RouterLink to="/">Volver Atras</RouterLink>

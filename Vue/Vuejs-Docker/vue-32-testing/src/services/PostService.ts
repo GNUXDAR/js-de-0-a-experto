@@ -29,7 +29,7 @@ class PostService {
         }
     }
 
-    async fetchById(id: string | Array<string>): Promise<void> {
+    async fetchById(id:string | Array<string>): Promise<void> {
         try {
             const url = `https://jsonplaceholder.typicode.com/posts/${id}`
             const response = await fetch(url)

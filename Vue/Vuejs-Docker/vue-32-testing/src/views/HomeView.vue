@@ -6,7 +6,7 @@
     <h1>Post List</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
-        <RouterLink :to="{name: 'detail', params: {id: post.id}}">{{ post.title }}</RouterLink>
+        <RouterLink :to="{ name:'detail', params:{ id:post.id } }">{{ post.title }}</RouterLink>
       </li>
     </ul>
   </div>
