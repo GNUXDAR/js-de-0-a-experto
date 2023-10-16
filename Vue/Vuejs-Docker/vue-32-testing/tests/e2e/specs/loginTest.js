@@ -1,5 +1,5 @@
 describe('Login Test', () => {
-    it('user c an not acces to protected routed when is not logged in', ()=> {
+    it('user can not acces to protected routed when is not logged in', ()=> {
         cy.visit('/')
         cy.url().should('eq', 'http://172.17.0.2:8080/login')
     })
