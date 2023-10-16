@@ -9,6 +9,7 @@ npm install pinia
 para gestionar el estados globales de la aplicacion
 
 ## run test
+ver lo comandos en el package.json en la seccion de script
 ```
 npm run test:e2e
 ```
