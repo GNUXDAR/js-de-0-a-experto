@@ -31,7 +31,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: LoginView
+    component: LoginView,
+    meta: {
+      requireAuth: false
+    }
   },
   {
     path: '/about',
