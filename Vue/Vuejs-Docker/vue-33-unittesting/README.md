@@ -1,4 +1,10 @@
 # vue-33-unittesting
+Testing unitarios con jest, los test unitarios se aplican a los componentes    
+[jest](https://jestjs.io/docs/expect)
+
+```
+npm run test:unit
+```
 
 ## Project setup
 ```
