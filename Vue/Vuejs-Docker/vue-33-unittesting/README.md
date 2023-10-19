@@ -1,5 +1,7 @@
 # vue-33-unittesting
 Testing unitarios con jest, los test unitarios se aplican a los componentes    
+testing de comunicacion vertical (props) ProsExample.vue  
+testing de comunicacion vertical (emit) ProsExample.vue  
 [jest](https://jestjs.io/docs/expect)
 
 ```
