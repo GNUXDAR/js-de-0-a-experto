@@ -7,7 +7,11 @@ testing de comunicacion vertical (emit) ProsExample.vue
 ```
 npm run test:unit
 ```
-
+## Install types/jest
+para en el caso de typeScript agregar los tipos de datos
+```
+npm install --save-dev @types/jest
+```
 ## Project setup
 ```
 npm install
