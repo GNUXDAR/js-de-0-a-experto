@@ -17,4 +17,17 @@ describe('PropExample.vue', ()=> {
             expect(wrapper.find('p').text()).toBe("Lorem ipsum")
         }
     })
+
+    it('the componen emits the counter value', async () => {
+        const wrapper = mount(PropExample, {
+            props: {
+                title: "Hello World",
+                content: "Lorem ipsum"
+            }
+        })
+        await wrapper.find('button').trigger('click')
+
+        console.log(wrapper.emitted())
+        expect(wrapper.emitted().clickMe[0][0]).toBe(1)
+    })
 })
