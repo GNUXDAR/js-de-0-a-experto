@@ -13,18 +13,35 @@ yarn dev
 ```
 yarn add -D vitest
 ```
+### Fichero de configuracion vites
+vitest.config.js  en la raiz del proyecto
 
+## Comandos de pruebas
+En este caso como no lo hacemos con el CLI de vue, debemos definir manualmente el comando de test en el package.json
 
+```
+  "scripts": {
+    ...
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+```
 
-
-
-
+### Docker
 to run in docker, add in package.json that "--host":
 
 ```
   "scripts": {
     "dev": "vite --host",
     ...
+```
+
+## Test
+se crea un carpeta "tests"n e n plural y dentro los ficheros de pruebas  
+
+### instalando jest para los test
+```
+yarn add --dev jest
 ```
 
 ## Instalando el router
