@@ -1,42 +1,75 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <div class="row wrap">
+    <div class="yellow col-xs-12 col-sm-6 col-md-4">
+      col
+    </div>
+    <div class="blue col-xs-12 col-sm-6 col-md-4">
+      col
+    </div>
+    <div class="red col-xs-12 col-sm-6 col-md-4">
+      col
+    </div>
+  </div>
+
+  <div class="q-pa-md row justify-center">
+    <div style="width: 100%; max-width: 400px">
+      <q-chat-message
+        name="me"
+        avatar="https://cdn.quasar.dev/img/avatar1.jpg"
+        :text="['hola que tal, soy Arturo C.']"
+        sent
+      />
+      <q-chat-message
+        name="Meryuris"
+        avatar="https://cdn.quasar.dev/img/avatar2.jpg"
+        :text="['Hola!']"
+      />
+        <q-chat-message
+          name="me"
+          avatar="https://cdn.quasar.dev/img/avatar1.jpg"
+          :text="['Soy el chico de las poesias.']"
+          sent
+        />
+        <q-chat-message
+          name="Meryuris"
+          avatar="https://cdn.quasar.dev/img/avatar2.jpg"
+          :text="['En serio?!']"
+        />
+        <q-chat-message
+          name="me"
+          avatar="https://cdn.quasar.dev/img/avatar1.jpg"
+          :text="['Tu fiel admirador!.']"
+          sent
+        />
+        <q-chat-message
+          name="Meryuris"
+          avatar="https://cdn.quasar.dev/img/avatar2.jpg"
+          :text="['Oh que hermoso!']"
+        />
+        <q-chat-message
+          name="me"
+          avatar="https://cdn.quasar.dev/img/avatar1.jpg"
+          :text="['y aunque no me conocias, hoy es noche de Sexo!!!.']"
+          sent
+        />
+    </div>
+  </div>
+
 </template>
 
-<script setup lang="ts">
-import { Todo, Meta } from 'components/models'
-import ExampleComponent from 'components/ExampleComponent.vue'
-import { ref } from 'vue'
-
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-])
-const meta = ref<Meta>({
-  totalCount: 1200
-})
+<script lang="ts" setup>
 </script>
+
+<style>
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+</style>
