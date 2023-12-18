@@ -1,47 +1,64 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h3 :style="color">
+    My name is: {{ myName }}
+    <br>
+    My age is: {{ myAge }}
+  </h3>
+  <button @click="saludar">Aceptar</button>
+  <button @click="saludo(myName)">Aceptar parametro</button>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <!-- contador -->
+  <h3>contador Ref</h3>
+  <button @click="decrement">-</button>
+  <span :class="myColor">{{ count }}</span>
+  <button @click="increment">+</button>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <!--  -->
+  
 </template>
 
+<script setup>
+  // import HelloWorld from './components/HelloWorld.vue'
+  // import TheWelcome from './components/TheWelcome.vue'
+
+  import { ref } from 'vue'
+
+  const myName = 'Arturo Cabrera'
+  const myAge = '33'
+  const color = 'color:#33a0ff;font-size:2em'
+
+  const saludar = () => {
+    alert("Hola Terricola")
+  }
+
+  // con parametro
+  const saludo = (miName) => {
+    alert(`Hola ${miName}`)
+  }
+
+  // contador
+  const count = ref(0);
+  const increment = () => {
+    count.value++;
+  }
+
+  const decrement = () => {
+    count.value--;
+  }
+
+  const myColor = ref = ("azul")
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
+.rojo {
+  color: rojo;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.verde {
+  color: verde;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.azul {
+  color: azul;
 }
 </style>
