@@ -1,4 +1,6 @@
 # vite-basic
+En un terminal se corre el contenedor y en otro se ejecuta
+`npm run dev`
 
 This template should help get you started developing with Vue 3 in Vite.
 
