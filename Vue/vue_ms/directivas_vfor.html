@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-for</title>
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+	<h2>Presentación de la directiva v-for</h2>
+	<p>
+		Para mostrar todos los elementos de una lista, puede usar la directiva <code>v-for</code>. <code>v-for</code> se
+		comporta de forma similar a un bucle <code>for...of</code> de JavaScript. Itera por una colección y proporciona
+		acceso a cada elemento por mesio de la variable que se declara.
+	</p>
+	<p>
+		La sintaxis <code>v-for</code> tiene este aspecto:
+	</p>
+
+	<pre>
+		<code>
+			v-for="itemName incollectionName"
+		</code>
+	</pre>
+
+	<p>
+		<code>collectionName</code> es el nombre de la matriz en el objeto de datos. En cada iteracción,
+		<code>itemName~ asume la identidad del elemento actual</code>. Para usar <code>v-for</code> en una plantilla,
+		agregue la directiva dentro de una declaración de elemento. Al hacerlo, se repite el elemento HTML tantas veces
+		como elementos haya en la matriz.
+	</p>
+
+	<cite>
+		<strong>Nota</strong>
+		<p>
+			Si va a crecar una lista sin ordenar (ul), o tendria que agregar <code>v-for</code> al elemento (ul).
+			Agréguelo al elelemtno (li), ya que ele lemento (li) es lo que se repetirá.
+		</p>
+	</cite>
+	<div id="app">
+		<p>Listas en Vue.js</p>
+		<ul id="demo">
+			<li v-for="name in namesMen">
+				{{ name }}
+			</li>
+		</ul>
+
+
+		<p>Lista con key</p>
+		<ul>
+			<li v-for="(namew, index) in namesWomen" :key="index">
+				{{ index }} {{ namew }}
+			</li>
+		</ul>
+
+		<h3>Representación de Objetos</h3>
+		<div v-for="(productClass, index) in productClasses" :key="index" class="row">
+			<div class="column">{{ productClass.name }}</div>
+			<div class="column">{{ productClass.price.toLocaleString('es-ES') }}</div>
+			<!-- toLocaleString('es-ES') funcion nativa de js -->
+		</div>
+	</div> <!-- cierre de id=app-->
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="./directivas_vfor.js"></script>
+	<script>
+		// solo para una lista
+		// App.mount('#demo');
+
+		// para todas las listas
+		App.mount('#app')
+	</script>
+</body>
+
+</html>
