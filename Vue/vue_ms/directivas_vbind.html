@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-bind</title>
+</head>
+<body>
+	<div id="app">
+		<img :src="imageSource" :alt="imageDescription" :title="title" :style="imageStyle">
+		<div :class="classObject" :style="styleObject">
+			<p>Hello, Vue!</p>
+			<p>
+				En Vue si pasas un objeto en booleano en true, se muestra si esta en false no. 
+			</p>
+			<p>Siguiendo la nomenclatura de objetos de js se aplican a obketos de clase, entonces si el nombre de clase usa un guion como 'center-text', coloque el nombre entre comillas.</p>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="./directivas_vbind.js"></script>
+	<script>
+		App.mount('#app')
+	</script>
+</body>
+</html>
