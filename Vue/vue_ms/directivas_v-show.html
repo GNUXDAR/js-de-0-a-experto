@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-show</title>
+</head>
+<body>
+	<div id="app">
+		<h2>v-show</h2>
+		<div v-show="isTime"> Estamos en un mes mas que Enero</div>
+		<!-- Puede usar código JavaScript válido en cualquier directiva o dentro de las llaves dobles ({{ }}).  new Date().getMonth() < 3 -->
+
+		<h2>v-if v-else-if v-else</h2>
+		<!-- Vue.js admite tres directivas para implementar la lógica booleana: v-if, v-else-if y v-else. Como cabría esperar, estas directivas coinciden a la perfección con las instrucciones if, else if y else tradicionales. -->
+		<div v-if="isFirstQuarter">Es el Primer Trimestre</div>
+		<div v-else-if="isSecondQuarter">Es el Segundo Trimestre</div>
+		<div v-else-if="isThirdQuarter">Es el Tercer Trimestre</div>
+		<div v-else>Es el Cuarto Trimestre</div>
+
+
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const App = Vue.createApp({
+			data() {
+				return {
+					isTime: new Date().getMonth()+1 > 1,
+					isFirstQuarter: new Date().getMonth() < 3,
+					isSecondQuarter: new Date().getMonth() < 6,
+					isThirdQuarter: new Date().getMonth() < 9,
+				}
+			},
+		});
+
+		App.mount('#app');
+	</script>
+</body>
+</html>
