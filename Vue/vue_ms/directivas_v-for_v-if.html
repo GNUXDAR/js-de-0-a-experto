@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-for</title>
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+	<h2>Presentación de la directiva v-for</h2>
+
+	<div id="app">
+
+		<h3>Representación de Objetos</h3>
+		<div v-for="(productClass, index) in productClasses" :key="index" class="row">
+			<div class="column">{{ productClass.name }}</div>
+			<div class="column">{{ productClass.price.toLocaleString('es-ES') }}</div>
+			<!-- toLocaleString('es-ES') funcion nativa de js -->
+
+            <button v-if="productClass.earlyBird" class="button">¡Reserva con antelación!</button>
+            <button v-else class="button">¡Reservar ahora!</button>
+            <div v-show="productClass.seatsAvailable < 10">¡Casi agotado!</div>
+		</div>
+	</div> <!-- cierre de id=app-->
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="./directivas_vfor.js"></script>
+	<script>
+		// para todas las listas
+		App.mount('#app')
+	</script>
+</body>
+
+</html>
