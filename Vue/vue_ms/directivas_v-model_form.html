@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>v-model con formulario</title>
+	<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+	<div id="app">
+		<form v-show="!booking.completed">
+			<h2>Book now!</h2>
+			<div class="row">
+				<label for="product-cabin">Select class:</label>
+				<select id="product-cabin" v-model="booking.cabinIndex">
+					<option v-for="(cabin, index) in product.cabins" :value="index">
+						{{ cabin.name }} $ {{ cabin.price.toLocaleString('en-US') }}
+					</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="notes">Notes:</label>
+				<textarea v-model="booking.notes" rows="3"></textarea>
+			</div>
+			<div class="row">
+				<!--TODO: Add button later -->
+			</div>
+			<img v-bind:src="product.image.src" v-bind:alt="product.image.description" :style="product.image.style">
+		</form>
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const App = Vue.createApp({
+			data(){
+				return {
+					product : {
+						name: 'Crucero en la luna',
+						description: 'Viaja a la luna en nuestro lujoso transporte. Observe a los astronautas trabajando fuera de la Estación Espacial Internacional.',
+						image: {
+							src: 'img/cruise.jpg',
+							description: 'Un astronauta flota fuera de la ventana mientras te sientas cómodamente',
+							style: { 
+								'border-radius': '15px',
+								width: '70%',
+							},
+						},
+						cabins: [
+							{ name: 'Coach', price: 125000 },
+							{ name: 'Business', price: 275000 },
+							{ name: 'First', price: 430000 },
+						]
+					},
+					booking: {
+						cabinIndex: 0,
+						notes: '',
+						completed: false
+					}
+				}
+			}
+		});
+
+		App.mount('#app');
+	</script>
+</body >
+
+</html >

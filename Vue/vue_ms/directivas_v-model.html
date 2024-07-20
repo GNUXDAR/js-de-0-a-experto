@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-model</title>
+	</head>
+	<body>
+		<div id="app">
+			<h2>v-model</h2>
+			<input type="text" v-model="name"> {{ name }}
+			<input type="checkbox" v-model="active"> Is Active
+
+			<input type="checkbox" v-model="benefitsSelected" true-value="yes" false-value="no"> Benefits selected: {{ benefitsSelected }}
+
+			<h2>Listas Desplegables</h2>
+			<select v-model="statusIndex" name="" id="">
+				<option disabled value="">Please select one</option>
+				<option v-for="(status, index) in statusList" :value="index">{{ status }}</option>
+			</select>
+		</div>
+
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script>
+			const App = Vue.createApp({
+				data() {
+					return {
+						name: 'Arturo',
+						status: -1,
+						active: true,
+						benefitsSelected: 'yes',
+						statusList: [
+							'full-time',
+							'part-time',
+							'contractor'
+						]
+					}
+				},
+			});
+
+			App.mount('#app');
+		</script>
+	</body>
+</html>
