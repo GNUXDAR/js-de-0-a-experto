@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>v-on</title>
+		<style>
+			* {
+				background-color:#29393e;
+				color: aliceblue;
+
+				button {
+					background-color: bisque;
+					color: green;
+				}
+			}
+		</style>
+
+		<body>
+			<div id="app">
+				<h2>v-on || @</h2>
+				<p>
+					Vue.js proporciona una directiva denominada v-on que puede enlazar a cualquier evento, como v-on:click. Como el control
+					de eventos es una tarea esencial, Vue.js también proporciona el método abreviado de teclado @ para cualquier evento. Por
+					tanto, para enlazar un evento de clic, puede usar el método abreviado de teclado @click.
+				</p>
+				<h2>Controladores de eventos</h2>
+				<p>
+					Puede crear controladores de eventos si agrega funciones al campo methods de una aplicación o un componente de Vue. El
+					campo methods es como data(), pero en lugar de devolver objetos de estado, mantiene una lista de las funciones
+					disponibles para la aplicación. Puede hacer referencia a estas funciones en el código HTML de la misma manera que hace
+					referencia a otras funciones de JavaScript.
+				</p>
+				<p>
+					<b>Nota</b>
+					
+					La razón clave para agregar funciones al campo methods es que las funciones puedan acceder a los datos registrados.
+				</p>
+
+				<p>
+					<small>
+						Al agregar un método a una aplicación o un componente de Vue, this apunta a la instancia activa. Cualquier dato
+						disponible para la instancia activa, como name en el ejemplo siguiente, es accesible desde this.
+					</small>
+					
+				</p>
+				<button @click="displayName">Alexander</button> {{count}}
+
+				<br>
+
+				<button class="button" @click="bookCabin">Book Now!</button> {{ booking.completed}}
+			</div>
+
+			<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+			<script>
+				const App = Vue.createApp({
+					data() {
+						return {
+							count: 0,
+							name: 'Alexander',
+							product: {
+								cabins: [
+									{ name: 'Coach', price: 125000 },
+									{ name: 'Business', price: 275000 },
+									{ name: 'First', price: 430000 },
+								]
+							},
+							booking: {
+								cabinIndex: 0,
+								notes: '',
+								completed: false
+							}
+						}
+					},
+					methods: {
+						displayName() {
+							console.log(this.name)
+						},
+						bookCabin() {
+							this.booking.completed = true;
+						}
+					},
+				});
+
+				App.mount('#app')
+			</script>
+		</body>
+	</head>
+	
+</html>
