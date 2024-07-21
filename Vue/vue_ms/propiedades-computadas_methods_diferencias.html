@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Propiedades computadas</title>
+	<style>
+		span {
+			margin-top: 10px;
+			padding:5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<p>
+			En Vue puede usar propiedades computadas para descargar cálculos y otras formas de cadenas dinámicas.
+		</p>
+		<p>
+			Una propiedad computadas es una función que devuelve un valor. Al igual que un método, una propiedad computadas puede
+			acceder a la instancia activa de Vue mediante this.
+		</p>
+		<p>
+			Puede usar las propiedades calculadas para combinar firstName y lastName en una propiedad fullName, realizar búsquedas
+			en una matriz para devolver el valor correcto o realizar otras tareas dinámicas.
+		</p>
+
+		<p>
+			<b>Diferencias</b>
+			<ul>
+				<li>
+					<b>computed:</b> Se utilizan para calcular valores derivados, basados en otros propiedades reactivas.
+					Se cachean, esto las hace mas eficiente.
+				</li>
+				<li>
+					<b>methods:</b> Se utilizan para definir funciones que se  ejecutan en respuesat a eventos o acciones del usaurio. Son utilespara logica que debe ejecutarse explicitamente, como al hacer click en un boton.
+					No cacheada, se vuelven a ejecutar cada vez que se llaman.
+				</li>
+			</ul>
+			
+
+
+		</p>
+
+		<span>
+			<p>Nombre completo (computed): {{ fullName }}</p>
+			<p>Nombre completo (methods): {{ getFullName() }}</p>
+			<input type="text" v-model="firstName" placeholder="Nombre">
+			<input type="text" v-model="lastName" placeholder="Apellido">
+		</span>
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const App = Vue.createApp({
+			data() {
+				return {
+					firstName: 'Arturo',
+					lastName: 'Cabrera',
+				}
+			},
+			methods: {
+				getFullName() {
+					console.log('Methods llamado');
+					return `${this.lastName}, ${this.firstName}`
+				}
+			},
+			computed: {
+				fullName() {
+					// return this.fisrtName + ' ' + this.lastName;
+					console.log('Propiedad computada llamada');
+					return `${this.lastName}, ${this.firstName}`
+
+				}
+			}
+		});
+
+		App.mount('#app');
+	</script>
+</body>
+
+</html>
