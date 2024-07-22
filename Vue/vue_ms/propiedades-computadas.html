@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Propiedades Computadas</title>
+</head>
+
+<body>
+	<!-- incompleto -->
+	<!-- https://learn.microsoft.com/es-mx/training/modules/vue-data-events/7-computed-properties-exercise -->
+	<div id="app">
+		<div v-show="booking.completed">
+			<h2 class="row">
+				Estas en Camino!
+			</h2>
+			<div class="row">
+				<div>Booking Details:</div>
+				<div>{{ bookingCabinDisplay }}</div>
+				<div>Notes: {{ booking.notes }}</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const App = Vue.createApp({
+			data() {
+				return {
+					product: {
+						name: 'Arturo',
+						description: 'crucero de lujo',
+						cabins: [
+							{ name: 'Coach', price: 125000 },
+							{ name: 'Businessd', price: 275000 },
+							{ name: 'First', price: 430000 },
+						]
+					},
+					booking: {
+						cabinIndex: 0,
+						notes: '',
+						completed: true
+					}
+				}
+			},
+			computed: {
+				bookingCabinDisplay() {
+					const cabin = this.product.cabins[this.booking.cabinIndex];
+					return `${cabin.name}: $ ${cabin.price.toLocaleString('es-ES')}`
+				}
+			}
+		});
+
+		App.mount('#app');
+	</script>
+</body>
+
+</html>
