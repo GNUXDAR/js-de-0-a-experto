@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>?</title>
+	</head>
+	<body>
+		<h2>Repaso de Vue</h2>
+		<div id="app">
+			{{ message }} {{ showDate() }}
+
+			<h2>Family</h2>
+			<ul>
+				<li v-for="(name, key) in names">{{ name.name }} -> {{ name.age }}</li>
+			</ul>
+		</div>
+
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script>
+			const App = Vue.createApp({
+				data() {
+					return {
+						message: 'Prueba de Vue3',
+						date: new Date(),
+						names: [
+							{ name: 'Arturo', age: 34 },
+							{ name: 'Alexander', age: 6 },
+							{ name: 'Alexa', age: 4 },
+							{ name: 'Meryuris', age: 32 },
+						]
+					}
+				},
+				methods: {
+					showDate() {
+						return this.date
+					}
+				},
+			});
+
+			App.mount('#app');
+		</script>
+	</body>
+</html>
