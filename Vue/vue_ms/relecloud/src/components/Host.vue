@@ -1,5 +1,6 @@
 <template>
-	<section>
+	<input type="checkbox" v-model="inEnable"> Activo?
+	<section v-show="inEnable">
 		<div class="nav-bar"></div>
 		<h1>Relecloud Galaxy Tours</h1>
 
@@ -14,6 +15,12 @@
 				</div>
 				<div>
 					<!-- TODO: Add booking-list -->
+					<booking-list 
+						:bookings="bookings" 
+						@my-event="manejarEvento"
+					>
+					</booking-list>
+					<p v-if="mensajeRecibido">Mensaje recibido: {{ mensajeRecibido }}</p>
 				</div>
 			</div>
 		</div>
@@ -21,10 +28,14 @@
 </template>
 
 <script>
+import BookingList from './BookingList.vue';
+// TODO: Register next component
 export default {
 	name: 'Host',
 	data(){
 		return {
+			mensajeRecibido: null, // Para almacenar el mensaje recibido
+			inEnable: true,
 			cruise: {
 				name: 'Crucero a la luna',
 				description: 'Viaja a la luna en nuestro lujoso transporte. Observe a los astronautas trabajando fuera de la Estación Espacial Internacional.',
@@ -34,11 +45,22 @@ export default {
 					{ name: 'First', price: 430000 },
 				]
 			},
-			booking: [
-				{ name: 'Sample', price: 0 }
+			bookings: [
+				{ name: 'Sample', price: 0 },
+				{ name: 'Sample2', price: 10 },
+				{ name: 'Sample3', price: 20 }
 			]
 		}
-	}
+	},
+	methods: {
+		manejarEvento(message){
+			this.mensajeRecibido = message; //almacenar mensaje recibido
+		}
+	},
+	components: {
+		BookingList,
+		// TODO: Add next component
+	},
 }
 </script>
 
