@@ -3,7 +3,7 @@
 		<h2>Aqui sus reservas actuales:</h2>
 	</section>
 	<div class="row" v-for="(booking, index) in bookings" :key="index">
-		<div>{{ booking.name }} -> $ {{ booking.price }} </div>
+		<div>{{ booking.cabin }} -> $ {{ booking.price }} </div>
 	</div>
 
 	<h3 class="row">
