@@ -12,6 +12,7 @@
 			<div class="row">
 				<div>
 					<!-- TODO: Add booking-form -->
+					 <booking-form @booking-crated="addBoking" :cabins="cruise.cabins"></booking-form>
 				</div>
 				<div>
 					<!-- TODO: Add booking-list -->
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import BookingForm from './BookingForm.vue';
 import BookingList from './BookingList.vue';
 // TODO: Register next component
 export default {
@@ -55,10 +57,19 @@ export default {
 	methods: {
 		manejarEvento(message){
 			this.mensajeRecibido = message; //almacenar mensaje recibido
+		},
+		addBoking(cabinIndex) {
+			const cabin = this.cruise.cabins[cabinIndex];
+			const booking = {
+				cabin: cabin.name,
+				price: cabin.price
+			}
+			this.bookings.push(booking);
 		}
 	},
-	components: {
+	components: { //para registrar el componente
 		BookingList,
+		BookingForm,
 		// TODO: Add next component
 	},
 }
