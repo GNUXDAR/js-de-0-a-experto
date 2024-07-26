@@ -25,12 +25,19 @@
 				</div>
 			</div>
 		</div>
+
+		<hr>
+		<div>
+			<h3>props</h3>
+			<props-padre></props-padre>
+		</div>
 	</section>
 </template>
 
 <script>
 import BookingForm from './BookingForm.vue';
 import BookingList from './BookingList.vue';
+import PropsPadre from './PropsPadre.vue';
 // TODO: Register next component
 export default {
 	name: 'Host',
@@ -70,6 +77,7 @@ export default {
 	components: { //para registrar el componente
 		BookingList,
 		BookingForm,
+		PropsPadre,
 		// TODO: Add next component
 	},
 }
