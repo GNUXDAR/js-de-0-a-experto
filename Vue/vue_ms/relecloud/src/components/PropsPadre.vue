@@ -1,6 +1,5 @@
 <template>
-	<h1>Aqui hay un componente hijo!</h1>
-	<props-hijo :title="title" :description="description"></props-hijo>
+	<props-hijo :title="title" :description="description" :user="user" :admin="true"></props-hijo>
 </template>
 
 <script>
@@ -11,6 +10,11 @@ export default {
 		return {
 			title: 'Hello world!',
 			description: 'Este es un mensaje del props Padre',
+			user: {
+				name: 'Arturo',
+				age: 34,
+				alias: '@gnuxdar',
+			},
 		}
 	},
 	components: { 
