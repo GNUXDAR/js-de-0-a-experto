@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- 
+uso de componentes, componentes anidados, props, v-for, v-bind, v-on
+ -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+<body>
+	<div id="app">
+		<h2>{{ message}}</h2>
+		<button @click="toggleButton">{{ mostrar ? 'Ocultar' : 'Mostrar'}}</button>
+		<ul v-if="mostrar">
+			<tv-show-list :tvshows="tvshows"></tv-show-list>
+			<!-- <li v-for="(show, index) in tvshows">
+				{{ show.name }} - {{ show.seasons}} Temporadas
+			</li> -->
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const TvShow = {
+			props: {
+				name: String,
+				seasons: Number,
+			},
+			template: `
+				<li>
+					{{ name }} ({{ seasons }} Temporadas)
+				</li>
+			`
+		};
+
+		const tvShowList = {
+			props: {
+				tvshows: Array,
+			},
+			template: `
+				<ul>
+					<tv-show 
+						v-for="(show, index) in tvshows" 
+						:key="index" 
+						:name="show.name" 
+						:seasons="show.seasons">
+					</tv-show>
+				</ul>
+			`,
+			components: {
+				TvShow
+			}
+		};
+
+		const App = Vue.createApp({
+			data() {
+				return {
+					message: 'Hola Vue.js',
+					mostrar: true,
+					tvshows: [
+						{ name: 'GOT', seasons: 7 },
+						{ name: 'Breaking Bad', seasons: 5 },
+						{ name: 'LOST', seasons: 6 },
+						{ name: 'Battleship', seasons: 2 },
+					],
+				}
+			},
+			methods: {
+				toggleButton() {
+					this.mostrar = !this.mostrar;
+				}
+			},
+			components: {
+				tvShowList
+			}
+		});
+
+		App.mount('#app');
+	</script>
+</body>
+
+</html>
