@@ -1,6 +1,6 @@
 
 
-![vue](Vue/img/Common-Vue.svg)
+![vue](Vue/img/Common-Vue.png)
 Vue.js es un framework de JavaScript progresivo utilizado para construir interfaces de usuario y aplicaciones de una sola página (SPA). Aquí un resumen de sus características y componentes clave:
 
 ### Características Principales
