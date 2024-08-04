@@ -10,16 +10,13 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex'
 import ColumnCard from '../components/ColumnCard.vue'
 
 export default {
 	data() {
 		return {
 			listName: '',
-			boardList: [
-				{ id: '1', name: 'Todo' },
-				{ id: '2', name: 'Doing' }
-			]
 		}
 	},
 	props: {
@@ -27,8 +24,28 @@ export default {
 		name: String,
 	},
 	methods: {
+		...mapActions([
+			'addColumn',
+			'fetchLists'
+		]),
 		add() {
-				this.boardList.push({ name: this.listName });
+			this.addColumn({ board: this.id, name: this.listName })
+			this.listName = ''
+		}
+	},
+	created() {
+		this.fetchLists({ board: this.id })
+	},
+	computed: {
+		...mapState([
+			'fetchingData',
+			'error'
+		]),
+		...mapGetters([
+			'getListsByBoard'
+		]),
+		boardLists() {
+			return this.getListsByBoard(this.id)
 		}
 	},
 	components: {
