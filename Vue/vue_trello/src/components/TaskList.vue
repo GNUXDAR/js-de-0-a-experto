@@ -1,6 +1,10 @@
 <template>
 	<ul>
-		<li v-for="(task, index) in tasks" :key="index" class="{completed: task.completed}">
+		<li v-for="(task, index) in tasks" 
+			:key="index" 
+			class="{completed: task.completed}"
+			@click="markAsCompleted({ task })" 
+			@dblclick="deleteTask({ taskId: task.id })">
 			{{ task.title }}
 		</li>
 		<input type="text" placeholder="Agregar nueva tarea" v-model="title" @keyup.enter="add()">
@@ -8,20 +12,28 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
 	data() {
 		return {
 			title: '',
 		}
-		
+
 	},
 	props: {
 		listId: String,
 		tasks: Array
 	},
 	methods: {
+		...mapActions([
+			'addTask',
+			'markAsCompleted',
+			'deleteTask'
+		]),
 		add() {
-			//eventos
+			this.addTask({ list: this.listId, title: this.title })
+			this.title = ''
 		}
 	}
 
@@ -34,13 +46,15 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+
 li {
 	background-color: #FAFAFA;
 	border-radius: 3px;
 	border-bottom: 1px solid #CCC;
-	margin:0.25rem;
+	margin: 0.25rem;
 	padding: rem;
 }
+
 li.completed {
 	background-color: #CFD8DC;
 	color: 90A4AE;
@@ -57,7 +71,7 @@ input {
 	outline: 0;
 	padding: 1rem;
 	transition: background-color 600ms ease;
-	width:100%;
+	width: 100%;
 }
 
 input:focus,
