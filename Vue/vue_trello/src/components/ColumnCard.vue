@@ -8,20 +8,28 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import TaskList from './TaskList.vue'
 
 export default {
-	data() {
-		return {
-			taskList: [
-				{ id: 1, title: 'Aprender Vue', completed: false },
-				{ id: 2, title: 'Aprender Vuex', completed: false },
-			]
-		}
-	},
+
 	props: {
 		listId: String,
 		name: String,
+	},
+	computed: {
+		...mapGetters([
+			'getTasksFromList'
+		]),
+		tasksList() {
+			return this.getTasksFromList(this.listId)
+		}
+	},
+	methods: {
+		...mapActions(['fetchTasks'])
+	},
+	created() {
+		this.fetchTasks({ list: this.listId })
 	},
 	components: {
 		TaskList,
