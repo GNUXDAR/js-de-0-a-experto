@@ -14,3 +14,4 @@ npm cache clean --force
 
 ## install
 npm i -S vue-router
+npm i vuex
