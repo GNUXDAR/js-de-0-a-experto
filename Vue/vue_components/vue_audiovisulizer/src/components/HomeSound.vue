@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="visualizer">
 		<h1>Audio Visualizer with Controls</h1>
 		<input type="file" @change="handleFileChange" accept="audio/*" />
 		<div id="controls">
@@ -160,17 +160,18 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-body {
+.visualizer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: #282c34;
 	color: white;
 	font-family: Arial, sans-serif;
+	padding:15px;
 
 }
 
-h1, input {
+h1, input, p {
 	color: #fff;
 }
 canvas {
