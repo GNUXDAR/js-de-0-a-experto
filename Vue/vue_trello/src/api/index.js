@@ -1,62 +1,82 @@
-import { db } from "./firebase";
+import {
+  getDatabase,
+  ref,
+  get,
+  set,
+  push,
+  query,
+  orderByChild,
+  equalTo,
+  remove,
+} from "firebase/database";
+import app from "./firebase"; // Importa la instancia de la aplicación inicializada
 
-const boardsRef = db.ref("/boards");
-const listsRef = db.ref("/lists");
-const tasksRef = db.ref("/tasks");
+// Inicializar la base de datos
+const db = getDatabase(app);
 
 export default {
   async getBoardsByUser(userId) {
-    const query = boardsRef.orderByChild("owner").equalTo(userId);
-    const snapshot = await query.once("value");
+    const boardsRef = ref(db, "boards");
+    const userQuery = query(boardsRef, orderByChild("owner"), equalTo(userId));
+    const snapshot = await get(userQuery);
     return snapshot.val();
   },
 
   async postBoard(name) {
-    const id = boardsRef.push().key;
+    const boardsRef = ref(db, "boards");
+    const newBoardRef = push(boardsRef);
+    const id = newBoardRef.key;
     const owner = 1; // Este valor debe ser dinámico dependiendo del usuario autenticado
     const board = { id, name, owner };
 
-    await boardsRef.child(id).set(board);
+    await set(newBoardRef, board);
     return board;
   },
 
   async getListsFromBoard(boardId) {
-    const query = listsRef.orderByChild("board").equalTo(boardId);
-    const snapshot = await query.once("value");
+    const listsRef = ref(db, "lists");
+    const boardQuery = query(listsRef, orderByChild("board"), equalTo(boardId));
+    const snapshot = await get(boardQuery);
     return snapshot.val();
   },
 
   async postList(board, name) {
-    const id = listsRef.push().key;
+    const listsRef = ref(db, "lists");
+    const newListRef = push(listsRef);
+    const id = newListRef.key;
     const column = { id, name, board };
 
-    await listsRef.child(id).set(column);
+    await set(newListRef, column);
     return column;
   },
 
   async getTasksFromList(listId) {
-    const query = tasksRef.orderByChild("list").equalTo(listId);
-    const snapshot = await query.once("value");
+    const tasksRef = ref(db, "tasks");
+    const listQuery = query(tasksRef, orderByChild("list"), equalTo(listId));
+    const snapshot = await get(listQuery);
     return snapshot.val();
   },
 
   async postTask(list, title) {
-    const id = tasksRef.push().key;
+    const tasksRef = ref(db, "tasks");
+    const newTaskRef = push(tasksRef);
+    const id = newTaskRef.key;
     const task = { id, list, title, completed: false };
 
-    await tasksRef.child(id).set(task);
+    await set(newTaskRef, task);
     return task;
   },
 
   async deleteTask(taskId) {
-    await tasksRef.child(taskId).remove();
+    const taskRef = ref(db, `tasks/${taskId}`);
+    await remove(taskRef);
   },
 
   async completedTask(taskId) {
-    const query = tasksRef.child(taskId).child("completed");
-    const snapshot = await query.once("value");
+    const taskCompletedRef = ref(db, `tasks/${taskId}/completed`);
+    const snapshot = await get(taskCompletedRef);
     const currentStatus = snapshot.val();
-    await query.set(!currentStatus);
+    await set(taskCompletedRef, !currentStatus);
     return !currentStatus;
   },
 };
