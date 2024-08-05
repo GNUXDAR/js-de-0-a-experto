@@ -6,16 +6,10 @@
 			<button @click="playAudio">Play</button>
 			<button @click="pauseAudio">Pause</button>
 			<button @click="stopAudio">Stop</button>
-			<input type="range" v-model="progress" @input="handleProgressChange" max="100" />
+			<input class="drag__bar" type="range" v-model="progress" @input="handleProgressChange" max="100" />
 			<p>Puedes darle click al reproductor para Play/Pause</p>
 		</div>
-		<canvas 
-			v-show="audioLoaded" 
-			ref="canvas" 
-			width="800" 
-			height="200" 
-			@click="handleCanvasClick"
-		></canvas>
+		<canvas v-show="audioLoaded" ref="canvas" width="800" height="200" @click="handleCanvasClick"></canvas>
 	</div>
 </template>
 
@@ -174,6 +168,27 @@ onUnmounted(() => {
 h1, input, p {
 	color: #fff;
 }
+
+input[type="range"] {
+	height: 10px;
+	width: 100%; 
+	background-color: #f1f1f1;
+	border-radius: 50px;
+	-webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width:15px;
+	height: 15px;
+	border-radius: 50%;
+	background:rgb(65, 184, 131);
+	cursor: pointer;
+	border: 2px solid white;
+}
+
+
 canvas {
 	border: 1px solid white;
 	margin-top: 20px;
