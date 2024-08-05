@@ -65,7 +65,7 @@ function connectAudioSource(buffer) {
 }
 
 function playAudio() {
-	if (audioBuffer.value) { // Asegúrate de que el búfer esté cargado
+	if (audioBuffer.value) { // Al dar pause se vuelve a cargar desde mel inicio
 		audioSource.value = audioContext.value.createBufferSource();
 		audioSource.value.buffer = audioBuffer.value;
 		audioSource.value.connect(analyser.value);
@@ -110,7 +110,7 @@ function draw() {
 
 	for (let i = 0; i < bufferLength.value; i++) {
 		barHeight = dataArray.value[i] / 2;
-		ctx.fillStyle = `rgb(0, 0, ${barHeight + 100})`; // Color azul para las barras
+		ctx.fillStyle = `rgb(65, 184, 131)`; //`rgb(0, 0, ${barHeight + 100})`; // Color azul para las barras
 		ctx.fillRect(x, canvas.value.height - barHeight, barWidth, barHeight);
 		x += barWidth + 1;
 	}
@@ -179,6 +179,13 @@ canvas {
 	margin-top: 20px;
 	background: rgba(243, 225, 225, 0.5);
 	cursor: pointer;
+	background-image: url("../assets/logo.png");
+	/* background-repeat: no-repeat;
+	background-position: center; */
+	background-size: contain;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
 }
 
 #controls {
