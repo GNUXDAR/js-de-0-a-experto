@@ -7,14 +7,22 @@
 			<button @click="pauseAudio">Pause</button>
 			<button @click="stopAudio">Stop</button>
 			<input type="range" v-model="progress" @input="handleProgressChange" max="100" />
+			<p>Puedes darle click al reproductor para Play/Pause</p>
 		</div>
-		<canvas ref="canvas" width="800" height="200"></canvas>
+		<canvas 
+			v-show="audioLoaded" 
+			ref="canvas" 
+			width="800" 
+			height="200" 
+			@click="handleCanvasClick"
+		></canvas>
 	</div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
+// se definen reactivos
 const canvas = ref(null);
 const audioContext = ref(null);
 const audioSource = ref(null);
@@ -26,6 +34,16 @@ const isPlaying = ref(false);
 const startTime = ref(0);
 const pausedAt = ref(0);
 const progress = ref(0);
+const audioLoaded = ref(false);
+
+function handleCanvasClick() {
+	isPlaying.value = !isPlaying.value;
+	if (isPlaying.value) {
+		playAudio();
+	} else {
+		pauseAudio();
+	}
+}
 
 function initAudioContext() {
 	audioContext.value = new (window.AudioContext || window.webkitAudioContext)();
@@ -42,24 +60,28 @@ function connectAudioSource(buffer) {
 	audioSource.value.connect(analyser.value);
 	analyser.value.connect(audioContext.value.destination);
 	audioSource.value.onended = () => stopAudio();
+	audioLoaded.value = true;
 	draw();
 }
 
 function playAudio() {
-	if (!isPlaying.value) {
+	if (audioBuffer.value) { // Asegúrate de que el búfer esté cargado
 		audioSource.value = audioContext.value.createBufferSource();
 		audioSource.value.buffer = audioBuffer.value;
 		audioSource.value.connect(analyser.value);
 		analyser.value.connect(audioContext.value.destination);
 		audioSource.value.onended = () => stopAudio();
-		audioSource.value.start(0, pausedAt.value);
-		startTime.value = audioContext.value.currentTime - pausedAt.value;
+		pausedAt.value = 0; // Reinicia pausedAt
+		audioSource.value.start();
+		startTime.value = audioContext.value.currentTime;
 		isPlaying.value = true;
+	} else {
+		console.error("No se ha cargado ningún archivo de audio");
 	}
 }
 
 function pauseAudio() {
-	if (isPlaying.value) {
+	if (audioSource.value) { 
 		audioSource.value.stop();
 		pausedAt.value = audioContext.value.currentTime - startTime.value;
 		isPlaying.value = false;
@@ -137,7 +159,7 @@ onUnmounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 body {
 	display: flex;
 	flex-direction: column;
@@ -155,6 +177,7 @@ canvas {
 	border: 1px solid white;
 	margin-top: 20px;
 	background: rgba(243, 225, 225, 0.5);
+	cursor: pointer;
 }
 
 #controls {
