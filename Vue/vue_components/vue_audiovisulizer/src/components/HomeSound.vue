@@ -1,6 +1,6 @@
 <template>
 	<div class="visualizer">
-		<h1>Audio Visualizer with Controls</h1>
+		<h1>Audio Visualizer</h1>
 		<input type="file" @change="handleFileChange" accept="audio/*" />
 		<div id="controls">
 			<button @click="playAudio">Play</button>
