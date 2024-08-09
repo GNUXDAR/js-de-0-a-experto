@@ -1,6 +1,6 @@
 <template>
 	<footer>
-		<span>💻 Made with ❤️</span>
+		<span>💻 Made with ❤️ by <a href="https://www.instagram.com/gnuxdar">@gnuxdar</a></span>
 	</footer>
 
 </template>
