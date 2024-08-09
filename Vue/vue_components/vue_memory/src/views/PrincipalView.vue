@@ -13,6 +13,7 @@
 		<div class="container">
 			<div>
 				<img 
+					class="square"
 					v-for="(el, index) in total" 
 					:key="index" 
 					:src="index % 2 === 0 ? imgBlack : imgWhite"
@@ -32,7 +33,7 @@ export default {
 	},
 	data(){
 		return {
-			square: 22,
+			square: 24,
 			imgBlack: 'img-front/bk-blak.png',
 			imgWhite: 'img-front/bk-white.png',
 			total: 0
@@ -77,5 +78,11 @@ span {
 a {
 	color: #42b983;
 }
+
+.square {
+	margin-left: 4px;
+}
+
+/* card-rotation*/
 
 </style>
