@@ -12,22 +12,29 @@
 
 		<div class="container">
 			<div>
-				<img 
+				<ImageFlip :total="total" :imgBlack="imgBlack" :imgWhite="imgWhite" />
+				<!-- <img 
 					class="square"
 					v-for="(el, index) in total" 
 					:key="index" 
 					:src="index % 2 === 0 ? imgBlack : imgWhite"
-					:alt="index % 2 === 0 ? 'imagen de cuadro negra' : 'imagen de cuadro blanca'">
+					:alt="index % 2 === 0 ? 'imagen de cuadro negra' : 'imagen de cuadro blanca'"> -->
+
 				<!-- :src="isEven(total) ? imgBlack : imgWhite" 
 					alt="isEven(total) ? 'imagen de cuadro negra' : 'imagen de cuadro blanca'" -->
+
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import ImageFlip from '../components/ImageFlip.vue'
 export default {
 	name: 'PrincipalView',
+	components: {
+		ImageFlip,
+	},
 	props: {
 		title: String
 	},
@@ -78,11 +85,5 @@ span {
 a {
 	color: #42b983;
 }
-
-.square {
-	margin-left: 4px;
-}
-
-/* card-rotation*/
 
 </style>
