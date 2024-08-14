@@ -13,16 +13,6 @@
 		<div class="container">
 			<div>
 				<ImageFlip :total="total" :imgBlack="imgBlack" :imgWhite="imgWhite" />
-				<!-- <img 
-					class="square"
-					v-for="(el, index) in total" 
-					:key="index" 
-					:src="index % 2 === 0 ? imgBlack : imgWhite"
-					:alt="index % 2 === 0 ? 'imagen de cuadro negra' : 'imagen de cuadro blanca'"> -->
-
-				<!-- :src="isEven(total) ? imgBlack : imgWhite" 
-					alt="isEven(total) ? 'imagen de cuadro negra' : 'imagen de cuadro blanca'" -->
-
 			</div>
 		</div>
 	</div>
@@ -35,29 +25,27 @@ export default {
 	components: {
 		ImageFlip,
 	},
-	props: {
-		title: String
-	},
 	data(){
 		return {
 			square: 24,
 			imgBlack: 'img-front/bk-blak.png',
 			imgWhite: 'img-front/bk-white.png',
-			total: 0
+			total: 0,
 		}
 	},
 	methods: {
 		changedPair() {
-			if (this.square <= 42) {
-				return this.total = this.square * 2
-			}else{
-				this.square = 42
+			if (this.square < 2) {
+				this.square = 2;
+			} else if (this.square > 42) {
+				this.square = 42;
 			}
-			
+
+			return this.total = this.square * 2;
 		},
 		isEven(number) {
 			return number % 2 === 0;
-		}
+		},
 	}
 }
 </script>
