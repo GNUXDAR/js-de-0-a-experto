@@ -1,6 +1,12 @@
 <template>
 	<div class="card-container">
-		<div class="card" v-for="(el, index) in total" :key="index">
+		<div 
+			class="card" 
+			v-for="(el, index) in cards" 
+			:key="index" 
+			:class="{ flipped: el.flipped }"
+			@click="flipCard(index)"
+		>
 			<div class="card-face card-front">
 				<img class="square" :src="imgWhite" alt="Imagen Frontal Blanca">
 			</div>
@@ -13,7 +19,7 @@
 
 <script>
 export default {
-	name: 'ImageFlipComponent',
+	name: 'ImageFlip',
 	props: {
 		total: {
 			type: Number,
@@ -26,6 +32,21 @@ export default {
 		imgWhite: {
 			type: String,
 			required: true
+		}
+	},
+	data() {
+		return {
+			// flipped = volteada / ayudado con IA
+			cards: Array.from({ length: this.total }, () => ({ flipped: false })),
+			// un array de objeto para cada tarjeta
+		}
+		
+	},
+	methods: {
+		// index me da la posicion de la imagen
+		flipCard(index) {
+			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
+			// alert('diste click')
 		}
 	}
 }
@@ -43,11 +64,10 @@ export default {
 .card {
 	width: 150px;
 	height: 140px;
-	/* width: 100%;
-	height: 100%; */
 	position: relative;
 	transform-style: preserve-3d;
 	transition: transform 0.6s;
+	cursor: pointer;
 }
 
 .card-face {
@@ -68,11 +88,14 @@ export default {
 	transform: rotateY(180deg);
 }
 
-.card-container:hover .card {
-	/* Voltea al hacer hover */
+/* Voltea al hacer hover */
+/* .card-container:hover .card {
+	transform: rotateY(180deg);
+} */
+
+.flipped {
 	transform: rotateY(180deg);
 }
-
 .square {
 	margin-left: 4px;
 }
