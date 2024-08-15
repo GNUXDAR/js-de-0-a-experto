@@ -2,9 +2,9 @@
 	<div class="card-container">
 		<div 
 			class="card" 
-			v-for="(el, index) in cards" 
+			v-for="(card, index) in cards" 
 			:key="index" 
-			:class="{ flipped: el.flipped }"
+			:class="{ flipped: card.flipped }"
 			@click="flipCard(index)"
 		>
 			<div class="card-face card-front">
@@ -34,20 +34,22 @@ export default {
 			required: true
 		}
 	},
-	data() {
-		return {
-			// flipped = volteada / ayudado con IA
-			cards: Array.from({ length: this.total }, () => ({ flipped: false })),
-			// un array de objeto para cada tarjeta
+	computed: {
+		cards() {
+			return Array.from({ length: this.total *2 }, () => ({ flipped: false }));
 		}
-		
 	},
 	methods: {
 		// index me da la posicion de la imagen
 		flipCard(index) {
+			// alert(index);
+			// this.flipped = !this.flipped
+			console.log('Antes de cambiar ', this.cards[index].flipped);
 			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
-			// alert('diste click')
-		}
+			console.log('Despues de cambiar ', this.cards[index].flipped);
+			document.querySelectorAll('.card')[index].classList.toggle('flipped');
+			// alert(this.cards[index].flipped)
+		},
 	}
 }
 </script>
@@ -95,6 +97,7 @@ export default {
 
 .flipped {
 	transform: rotateY(180deg);
+	transition: transform 0.5s;
 }
 .square {
 	margin-left: 4px;
