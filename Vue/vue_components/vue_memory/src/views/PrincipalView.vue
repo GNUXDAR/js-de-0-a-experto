@@ -13,7 +13,12 @@
 
 		<div class="container">
 			<div>
-				<ImageFlip :total="total" :imgBlack="imgBlack" :imgWhite="imgWhite" />
+				<ImageFlip 
+					:total="total" 
+					:imgBlack="imgBlack" 
+					:imgWhite="imgWhite" 
+					:cardsBlock="cardsBlock"
+				/>
 			</div>
 		</div>
 	</div>
@@ -29,18 +34,19 @@ export default {
 	data(){
 		return {
 			// square: 24,
-			title: 'Memory {{Vue.js}}',
+			title: 'Memory {{ Capitan Vue }}',
 			imgBlack: 'img-front/bk-blak.png',
-			imgWhite: 'img-front/bk-white.png',
+			imgWhite: 'cards-tec/original.svg',
 			total: 22,
+			cardsBlock: [],
 		}
 	},
 	methods: {
 		changedPair() {
 			if (this.total < 2) {
 				this.total = 2;
-			} else if (this.total > 42) {
-				this.total = 42;
+			} else if (this.total > 44) {
+				this.total = 44;
 			}
 			return this.total;
 		},

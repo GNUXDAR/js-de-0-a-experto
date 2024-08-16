@@ -11,7 +11,7 @@
 				<img class="square" :src="imgWhite" alt="Imagen Frontal Blanca">
 			</div>
 			<div class="card-face card-back">
-				<img class="square" :src="imgBlack" alt="Imagen Trasera Negra">
+				<img class="square" :src="images[index]" alt="Imagen Trasera Negra">
 			</div>
 		</div>
 	</div>
@@ -34,9 +34,26 @@ export default {
 			required: true
 		}
 	},
+	mounted() {
+		this.selectedImages();
+	},
 	data() {
 		return {
-			// grid: []
+			flip: 0,
+			flippedCount: 0,
+			images: [
+				'cards-tec/00.svg',
+				'cards-tec/02.svg',
+				'cards-tec/03.svg',
+				'cards-tec/04.svg',
+				'cards-tec/05.svg',
+				'cards-tec/06.svg',
+				'cards-tec/07.svg',
+				'cards-tec/08.svg',
+				'cards-tec/09.svg',
+				'cards-tec/10.svg',
+				'cards-tec/11.svg',
+			]
 		}
 	},
 	computed: {
@@ -51,14 +68,57 @@ export default {
 	methods: {
 		// index me da la posicion de la imagen
 		flipCard(index) {
-			// alert(index);
-			// this.flipped = !this.flipped
+			console.log('aquiiii' +this.images);
+
+			if (this.cards[index].flipped) {
+				this.flippedCount--
+			} else {
+				this.flippedCount++
+			}
+
+			// if (this.flippedCount > 2) {
+			// 	// return;
+			// 	this.cards.forEach((card) => {
+			// 		console.log(this.flippedCount + ' voltedas');
+			// 		document.querySelectorAll('.card')[index].classList.remove('flipped')
+
+			// 		if(card.flipped === true) {
+			// 			console.log(card.flipped)
+			// 			card.flipped = false;
+			// 			// this.flippedCount--;
+			// 		}
+			// 	});
+			// }
+
 			console.log('Antes de cambiar ', this.cards[index].flipped);
 			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
 			console.log('Despues de cambiar ', this.cards[index].flipped);
 			document.querySelectorAll('.card')[index].classList.toggle('flipped');
 			// alert(this.cards[index].flipped)
 		},
+		selectedImages() {
+
+			const selectedImages = [];
+			const imagesCopy = [...this.images]; //copia el array original
+			while (selectedImages.length < this.total * 2) {
+				const randomIndex = Math.floor(Math.random() * imagesCopy.length);
+				const randomImage = imagesCopy[randomIndex];
+				selectedImages.push(randomImage);
+
+				// if (selectedImages.includes(randomImage)) {
+				// 	continue;
+				// }
+
+				selectedImages.push(randomImage);
+				selectedImages.push(randomImage); //para el par
+			}
+
+			// this.selectedImages = selectedImages;
+			this.cards = this.cards.map((card, index) => {
+				card.image = selectedImages[index];
+				return card;
+			});
+		}
 	}
 }
 </script>
