@@ -34,9 +34,18 @@ export default {
 			required: true
 		}
 	},
+	data() {
+		return {
+			// grid: []
+		}
+	},
 	computed: {
 		cards() {
-			return Array.from({ length: this.total *2 }, () => ({ flipped: false }));
+			// 	un Array de objetos
+			return Array.from(
+				{ length: this.total * 2 },
+				() => ({ flipped: false }),
+			);
 		}
 	},
 	methods: {

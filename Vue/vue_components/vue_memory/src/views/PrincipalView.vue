@@ -7,8 +7,8 @@
 			plazo. Sirven como medio para algunos tratamientos médicos y psicológicos.
 			<a href="https://arturocabrera.com" target="_self" rel="noopener">mi web</a>.
 		</p>
-		<input v-model.number="total" type="number">
-		<h3>Memory con {{ total*2 }} cuadros</h3>
+		<input v-model.number="total" type="number" @input="changedPair">
+		<h3>Memory con {{ changedPair() }} cuadros</h3>
 
 
 		<div class="container">
@@ -32,22 +32,21 @@ export default {
 			title: 'Memory {{Vue.js}}',
 			imgBlack: 'img-front/bk-blak.png',
 			imgWhite: 'img-front/bk-white.png',
-			total: 24,
+			total: 22,
 		}
 	},
 	methods: {
-		// changedPair() {
-		// 	if (this.square < 2) {
-		// 		this.square = 2;
-		// 	} else if (this.square > 42) {
-		// 		this.square = 42;
-		// 	}
-
-		// 	return this.total = this.square * 2;
-		// },
-		// isEven(number) {
-		// 	return number % 2 === 0;
-		// },
+		changedPair() {
+			if (this.total < 2) {
+				this.total = 2;
+			} else if (this.total > 42) {
+				this.total = 42;
+			}
+			return this.total;
+		},
+	// 	// isEven(number) {
+	// 	// 	return number % 2 === 0;
+	// 	// },
 	}
 }
 </script>
