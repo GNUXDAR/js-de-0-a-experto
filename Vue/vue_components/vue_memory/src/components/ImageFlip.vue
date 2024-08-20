@@ -1,17 +1,12 @@
 <template>
 	<div class="card-container">
-		<div 
-			class="card" 
-			v-for="(card, index) in cards" 
-			:key="index" 
-			:class="{ flipped: card.flipped }"
-			@click="flipCard(index)"
-		>
+		<div class="card" v-for="(card, index) in cards" :key="index" :class="{ flipped: card.flipped }"
+			@click="flipCard(index)">
 			<div class="card-face card-front">
-				<img class="square" :src="imgWhite" alt="Imagen Frontal Blanca">
+				<img class="square" :src="imgWhite" alt="Image Front">
 			</div>
 			<div class="card-face card-back">
-				<img class="square" :src="images[index]" alt="Imagen Trasera Negra">
+				<img class="square" :src="card.image" alt="Image Back">
 			</div>
 		</div>
 	</div>
@@ -39,6 +34,7 @@ export default {
 	},
 	data() {
 		return {
+			cards: [],
 			flip: 0,
 			flippedCount: 0,
 			images: [
@@ -57,67 +53,37 @@ export default {
 		}
 	},
 	computed: {
-		cards() {
-			// 	un Array de objetos
-			return Array.from(
-				{ length: this.total * 2 },
-				() => ({ flipped: false }),
-			);
-		}
+		flippedCards() {
+			return this.cards.filter(card => card.flipped)
+		},
+		// cards() {
+		// 	// 	un Array de objetos
+		// 	return Array.from(
+		// 		{ length: this.total * 2 },
+		// 		() => ({ flipped: false }),
+		// 	);
+		// }
 	},
 	methods: {
 		// index me da la posicion de la imagen
 		flipCard(index) {
-			console.log('aquiiii' +this.images);
+			// console.log('aquiiii' +this.images);
 
-			if (this.cards[index].flipped) {
-				this.flippedCount--
-			} else {
-				this.flippedCount++
-			}
-
-			// if (this.flippedCount > 2) {
-			// 	// return;
-			// 	this.cards.forEach((card) => {
-			// 		console.log(this.flippedCount + ' voltedas');
-			// 		document.querySelectorAll('.card')[index].classList.remove('flipped')
-
-			// 		if(card.flipped === true) {
-			// 			console.log(card.flipped)
-			// 			card.flipped = false;
-			// 			// this.flippedCount--;
-			// 		}
-			// 	});
-			// }
-
-			console.log('Antes de cambiar ', this.cards[index].flipped);
+			// console.log('Antes de cambiar ', this.cards[index].flipped);
 			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
-			console.log('Despues de cambiar ', this.cards[index].flipped);
-			document.querySelectorAll('.card')[index].classList.toggle('flipped');
+			// console.log('Despues de cambiar ', this.cards[index].flipped);
+			// document.querySelectorAll('.card')[index].classList.toggle('flipped');
+			
 			// alert(this.cards[index].flipped)
 		},
 		selectedImages() {
 
-			const selectedImages = [];
-			const imagesCopy = [...this.images]; //copia el array original
-			while (selectedImages.length < this.total * 2) {
-				const randomIndex = Math.floor(Math.random() * imagesCopy.length);
-				const randomImage = imagesCopy[randomIndex];
-				selectedImages.push(randomImage);
+			const images =  this.images.flatMap(image => [image, image]);
+			const shuffledImages = images.sort(()=> Math.random()-0,5);
+			this.cards = shuffledImages.map((image, index)=>({image, flipped:false}));
 
-				// if (selectedImages.includes(randomImage)) {
-				// 	continue;
-				// }
-
-				selectedImages.push(randomImage);
-				selectedImages.push(randomImage); //para el par
-			}
-
-			// this.selectedImages = selectedImages;
-			this.cards = this.cards.map((card, index) => {
-				card.image = selectedImages[index];
-				return card;
-			});
+			// const images = Array.from({ length: this.total * 2 }, () => this.images[Math.floor(Math.random() * this.images.length)])
+			// this.cards = images.map(image => ({ image, flipped: false }))
 		}
 	}
 }
