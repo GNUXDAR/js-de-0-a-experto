@@ -1,4 +1,7 @@
 <template>
+
+	<button class="btn" type="button" @click="refresh()">Barajear</button>
+
 	<div class="card-container">
 		<div class="card" v-for="(card, index) in cards" :key="index" :class="{ flipped: card.flipped }"
 			@click="flipCard(index)">
@@ -49,6 +52,18 @@ export default {
 				'cards-tec/09.svg',
 				'cards-tec/10.svg',
 				'cards-tec/11.svg',
+				'cards-tec/12.svg',
+				'cards-tec/13.svg',
+				'cards-tec/14.svg',
+				'cards-tec/15.svg',
+				'cards-tec/16.svg',
+				'cards-tec/17.svg',
+				'cards-tec/18.svg',
+				'cards-tec/19.svg',
+				'cards-tec/20.svg',
+				'cards-tec/21.svg',
+				'cards-tec/22.svg',
+				
 			]
 		}
 	},
@@ -56,34 +71,23 @@ export default {
 		flippedCards() {
 			return this.cards.filter(card => card.flipped)
 		},
-		// cards() {
-		// 	// 	un Array de objetos
-		// 	return Array.from(
-		// 		{ length: this.total * 2 },
-		// 		() => ({ flipped: false }),
-		// 	);
-		// }
 	},
 	methods: {
 		// index me da la posicion de la imagen
 		flipCard(index) {
-			// console.log('aquiiii' +this.images);
-
-			// console.log('Antes de cambiar ', this.cards[index].flipped);
 			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
-			// console.log('Despues de cambiar ', this.cards[index].flipped);
-			// document.querySelectorAll('.card')[index].classList.toggle('flipped');
-			
-			// alert(this.cards[index].flipped)
 		},
 		selectedImages() {
+			const images = this.images.flatMap(image => [image, image]);
+			for(let i=images.length-1; i>0; i--) {
+				const j=Math.floor(Math.random()*(i+1));
+				[images[i], images[j]] = [images[j], images[i]];
+			}
+			this.cards = images.map((image)=>({image, flipped:false}));
+		},
 
-			const images =  this.images.flatMap(image => [image, image]);
-			const shuffledImages = images.sort(()=> Math.random()-0,5);
-			this.cards = shuffledImages.map((image, index)=>({image, flipped:false}));
-
-			// const images = Array.from({ length: this.total * 2 }, () => this.images[Math.floor(Math.random() * this.images.length)])
-			// this.cards = images.map(image => ({ image, flipped: false }))
+		refresh() {
+			window.location.reload()
 		}
 	}
 }
@@ -96,6 +100,10 @@ export default {
 	flex-wrap: wrap;
 	gap: 10px;
 	perspective: 1000px;
+	background-color: #41b883;
+	width: 92%;
+	padding: 1%;
+	border-radius: 25px;
 }
 
 .card {
@@ -121,20 +129,27 @@ export default {
 
 .card-back {
 	/* voltea la parte trasera de la card */
-	background-color: white;
+	/* background-color: white; */
 	transform: rotateY(180deg);
 }
 
-/* Voltea al hacer hover */
-/* .card-container:hover .card {
-	transform: rotateY(180deg);
-} */
-
+/* Voltea al hacer click */
 .flipped {
 	transform: rotateY(180deg);
 	transition: transform 0.5s;
 }
 .square {
 	margin-left: 4px;
+}
+.btn{
+	width: 110px;
+	padding: 0.5%;
+	margin: 0.9%;
+	background-color: #41b883;
+	border: 0cap;
+	border-radius: 25px;
+	cursor: pointer;
+	font-size: medium;
+	color: beige;
 }
 </style>
