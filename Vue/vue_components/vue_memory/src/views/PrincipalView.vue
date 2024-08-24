@@ -8,7 +8,7 @@
 			<a href="https://arturocabrera.com" target="_self" rel="noopener">mi web</a>.
 		</p>
 		<!-- <input v-model.number="total" type="number" @input="changedPair"> -->
-		<h3>Memory with {{ changedPair() }} cards</h3>
+		<!-- <h3>Memory with {{ changedPair() }} cards</h3> -->
 
 
 		<div class="container">
@@ -41,19 +41,19 @@ export default {
 			cardsBlock: [],
 		}
 	},
-	methods: {
-		changedPair() {
-			if (this.total < 2) {
-				this.total = 2;
-			} else if (this.total > 44) {
-				this.total = 44;
-			}
-			return this.total * 2;
-		},
-	// 	// isEven(number) {
-	// 	// 	return number % 2 === 0;
-	// 	// },
-	}
+	// methods: {
+	// 	changedPair() {
+	// 		if (this.total < 2) {
+	// 			this.total = 2;
+	// 		} else if (this.total > 44) {
+	// 			this.total = 44;
+	// 		}
+	// 		return this.total * 2;
+	// 	},
+	// // 	// isEven(number) {
+	// // 	// 	return number % 2 === 0;
+	// // 	// },
+	// }
 }
 </script>
 
