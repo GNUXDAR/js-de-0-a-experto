@@ -1,5 +1,7 @@
-# vue_memory
+<img src="./public/vue_memory.png" width="25%"> 
 
+# vue_memory
+Es un juego de memoria, donde ayudamos a tener una optimizacion mental gracias a Capitan Vue
 ## Project setup
 ```
 npm install
