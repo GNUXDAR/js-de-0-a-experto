@@ -1,9 +1,11 @@
 <template>
 
-	<button class="btn" type="button" @click="refresh()">Barajear</button>
+	<button class="btn" type="button" @click="refresh()">Barajar</button>
+	<button class="btn-flipped" type="button" @click="showCards()">{{ showingCards ? 'Ocultar' : 'Mostrar' }}</button>
 
 	<div class="card-container">
-		<div class="card" v-for="(card, index) in cards" :key="index" :class="{ flipped: card.flipped }"
+		<div class="card" v-for="(card, index) in cards" :key="index"
+			:class="{ flipped: card.flipped, 'green-border': card.border === 'green', 'red-border': card.border === 'red' }"
 			@click="flipCard(index)">
 			<div class="card-face card-front">
 				<img class="square" :src="imgWhite" alt="Image Front">
@@ -38,8 +40,9 @@ export default {
 	data() {
 		return {
 			cards: [],
-			flip: 0,
-			flippedCount: 0,
+			selectedCards: [],
+			pairedCards: [],
+			showingCard: false,
 			images: [
 				'cards-tec/00.svg',
 				'cards-tec/02.svg',
@@ -63,7 +66,22 @@ export default {
 				'cards-tec/20.svg',
 				'cards-tec/21.svg',
 				'cards-tec/22.svg',
-				
+				'cards-tec/23.svg',
+				'cards-tec/24.svg',
+				'cards-tec/25.svg',
+				'cards-tec/26.svg',
+				'cards-tec/27.svg',
+				'cards-tec/28.svg',
+				'cards-tec/29.svg',
+				'cards-tec/30.svg',
+				'cards-tec/31.svg',
+				'cards-tec/32.svg',
+				'cards-tec/33.svg',
+				'cards-tec/34.svg',
+				'cards-tec/35.svg',
+				'cards-tec/36.svg',
+				'cards-tec/37.svg',
+				'cards-tec/38.svg',
 			]
 		}
 	},
@@ -75,7 +93,37 @@ export default {
 	methods: {
 		// index me da la posicion de la imagen
 		flipCard(index) {
-			this.cards[index].flipped = !this.cards[index].flipped; //ayudado con IA
+			if (this.cards[index].flipped) {
+				return;
+			}
+
+			// marcar la carta como volteada
+			this.cards[index].flipped = true;
+
+			// this.cards[index].flipped = !this.cards[index].flipped;
+
+			// un array para consultar las volteadas
+			this.selectedCards.push(index);
+			if (this.selectedCards.length === 2) {
+				this.cards[this.selectedCards[0]].border = 'red';
+				this.cards[this.selectedCards[1]].border = 'red';
+
+				setTimeout(() => {
+					// voltear si no coinciden
+					if (this.cards[this.selectedCards[0]].image !== this.cards[this.selectedCards[1]].image) {
+						this.cards[this.selectedCards[0]].flipped = false;
+						this.cards[this.selectedCards[1]].flipped = false;
+						this.cards[this.selectedCards[0]].border = 'red';
+						this.cards[this.selectedCards[1]].border = 'red';
+					}else{
+						this.cards[this.selectedCards[0]].border = 'green';
+						this.cards[this.selectedCards[1]].border = 'green';
+					}
+					this.cards[this.selectedCards[0]].border = '';
+					this.cards[this.selectedCards[1]].border = '';
+					this.selectedCards = []
+				}, 1000)
+			}
 		},
 		selectedImages() {
 			const images = this.images.flatMap(image => [image, image]);
@@ -88,7 +136,16 @@ export default {
 
 		refresh() {
 			window.location.reload()
-		}
+		},
+		showCards() {
+			this.showingCards = !this.showingCards;
+
+			if (this.showingCards) {
+				this.cards.forEach(card => card.flipped = true);
+			} else {
+				this.cards.forEach(card => card.flipped = false);
+			}
+		},
 	}
 }
 </script>
@@ -115,6 +172,14 @@ export default {
 	cursor: pointer;
 }
 
+.card.green-border {
+	filter: drop-shadow(0 0 15px green);
+}
+
+.card.red-border {
+	filter: drop-shadow(0 0 15px red);
+}
+
 .card-face {
 	position: absolute;
 	width: 100%;
@@ -124,7 +189,9 @@ export default {
 }
 
 /* .card-front {
-	background-color: black;
+	border: solid #000;
+	border-radius: 15px;
+	width: 100%;
 } */
 
 .card-back {
@@ -139,13 +206,24 @@ export default {
 	transition: transform 0.5s;
 }
 .square {
-	margin-left: 4px;
+	margin-left: 3.5px;
 }
-.btn{
+.btn {
 	width: 110px;
 	padding: 0.5%;
 	margin: 0.9%;
 	background-color: #41b883;
+	border: 0cap;
+	border-radius: 25px;
+	cursor: pointer;
+	font-size: medium;
+	color: beige;
+}
+.btn-flipped {
+	width: 110px;
+	padding: 0.5%;
+	margin: 0.9%;
+	background-color: #34495e;
 	border: 0cap;
 	border-radius: 25px;
 	cursor: pointer;
