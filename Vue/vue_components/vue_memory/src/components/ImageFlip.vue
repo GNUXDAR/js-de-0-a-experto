@@ -105,24 +105,27 @@ export default {
 			// un array para consultar las volteadas
 			this.selectedCards.push(index);
 			if (this.selectedCards.length === 2) {
+				// las marca en rojo "comparando"
 				this.cards[this.selectedCards[0]].border = 'red';
 				this.cards[this.selectedCards[1]].border = 'red';
 
 				setTimeout(() => {
-					// voltear si no coinciden
+					// Si las cartas no coinciden
 					if (this.cards[this.selectedCards[0]].image !== this.cards[this.selectedCards[1]].image) {
+						// Voltea las cartas de vuelta y deja el borde rojo para mostrar que no coinciden
 						this.cards[this.selectedCards[0]].flipped = false;
 						this.cards[this.selectedCards[1]].flipped = false;
-						this.cards[this.selectedCards[0]].border = 'red';
-						this.cards[this.selectedCards[1]].border = 'red';
-					}else{
+
+						this.cards[this.selectedCards[0]].border = '';
+						this.cards[this.selectedCards[1]].border = '';
+						this.selectedCards = [];
+					} else {
+						// Si las cartas coinciden, marca ambas con un borde verde y reinicia `selectedCards`
 						this.cards[this.selectedCards[0]].border = 'green';
 						this.cards[this.selectedCards[1]].border = 'green';
+						this.selectedCards = [];
 					}
-					this.cards[this.selectedCards[0]].border = '';
-					this.cards[this.selectedCards[1]].border = '';
-					this.selectedCards = []
-				}, 1000)
+				}, 1000);
 			}
 		},
 		selectedImages() {
@@ -139,13 +142,20 @@ export default {
 		},
 		showCards() {
 			this.showingCards = !this.showingCards;
-
+			// Resetear el borde cuando se muestran todas las cartas y también cuando se ocultan todas las cartas
 			if (this.showingCards) {
-				this.cards.forEach(card => card.flipped = true);
+				this.cards.forEach(card => {
+					card.flipped = true;
+					card.border = '';
+				});
 			} else {
-				this.cards.forEach(card => card.flipped = false);
+				this.cards.forEach(card => {
+					card.flipped = false;
+					card.border = '';
+				});
 			}
-		},
+		}
+,
 	}
 }
 </script>
@@ -170,22 +180,35 @@ export default {
 	transform-style: preserve-3d;
 	transition: transform 0.6s;
 	cursor: pointer;
+	border-radius: 11px;
+	outline-offset: 0;
+	box-sizing: border-box;
+}
+
+.card.green-border,
+.card.red-border {
+	border-radius: 11px;
+	outline: 4px solid transparent;
+	outline-offset: 0px;
+	box-sizing: border-box;
 }
 
 .card.green-border {
-	filter: drop-shadow(0 0 15px green);
+	outline-color: green;
 }
 
 .card.red-border {
-	filter: drop-shadow(0 0 15px red);
+	outline-color: red;
 }
 
 .card-face {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	backface-visibility: hidden;
-	/* oculta la cara no visible cuando la carta se voltea */
+	backface-visibility: hidden; /* oculta la cara no visible cuando la carta se voltea */
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* .card-front {
@@ -206,7 +229,11 @@ export default {
 	transition: transform 0.5s;
 }
 .square {
-	margin-left: 3.5px;
+	margin-left: 1.5px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 .btn {
 	width: 110px;
