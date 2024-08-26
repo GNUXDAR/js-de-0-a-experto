@@ -161,10 +161,11 @@ export default {
 </script>
 
 <style scoped>
+/*efecto 3D */
 .card-container {
-	/*efecto 3D */
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 10px;
 	perspective: 1000px;
 	background-color: #41b883;
