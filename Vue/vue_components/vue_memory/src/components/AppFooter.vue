@@ -19,8 +19,9 @@ footer {
 	bottom: 0;
 	left: 0;
 	padding: 1rem;
-	position: absolute;
+	position: fixed;
 	width: 100%;
+	text-align: center;
 	a{
 		text-decoration: none;
 		color: #546E7A;

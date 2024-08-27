@@ -168,7 +168,7 @@ export default {
 	justify-content: center;
 	gap: 10px;
 	perspective: 1000px;
-	background-color: #41b883;
+	/* background-color: #41b883; */
 	width: 92%;
 	padding: 1%;
 	border-radius: 25px;

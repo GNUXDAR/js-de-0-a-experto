@@ -1,7 +1,7 @@
 <template>
 	<div class="hello">
 		<h1>{{ title }}</h1>
-		<p>
+		<p class="intro">
 			<span>Memory</span> es un juego para practicar la agilidad mental, activan el cerebro y las habilidades
 			cognitivas. Mejoran la concentración. Ayuda a conservar la memoria tanto a corto, como a medio y largo
 			plazo. Sirven como medio para algunos tratamientos médicos y psicológicos.
@@ -59,6 +59,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.intro, h1 {
+	color: #fff;
+	font-size: 25px;
+	padding: 40px;
+}
 h3 {
 	margin: 40px 0 0;
 }
