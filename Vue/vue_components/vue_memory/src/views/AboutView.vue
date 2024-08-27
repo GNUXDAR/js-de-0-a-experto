@@ -22,4 +22,13 @@ ol {
 		text-align: center;
 		display: inline-block;
 }
+
+.about,
+h1 {
+	color: #fff;
+}
+
+p, ol {
+	font-size: 25px;
+}
 </style>
