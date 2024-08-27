@@ -7,7 +7,7 @@
 <img src="./vue_trello/public/favicon.ico" width="10%"> 
 
 1. **vue_memory**: Un juego de memoria que se desarrolla con el increible Vue.js 3  
-<img src="./vue_memory/public/vue_memory.png" width="25%"> 
+<img src="./vue_memory/public/vue_memory.png" width="20%" heigth="auto"> 
 
 
 * **otros prontos...**
