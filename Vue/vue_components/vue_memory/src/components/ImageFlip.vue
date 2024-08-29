@@ -1,7 +1,7 @@
 <template>
 
 	<button class="btn" type="button" @click="refresh()">Barajar</button>
-	<button class="btn-flipped" type="button" @click="showCards()">{{ showingCards ? 'Ocultar' : 'Mostrar' }}</button>
+	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{	showingCards ? 'Ocultar' : 'Mostrar' }}</button>
 
 	<div class="card-container">
 		<div class="card" v-for="(card, index) in cards" :key="index"
@@ -43,6 +43,7 @@ export default {
 			selectedCards: [],
 			pairedCards: [],
 			showingCard: false,
+			clickCount: 0,
 			images: [
 				'cards-tec/00.svg',
 				'cards-tec/02.svg',
@@ -139,6 +140,10 @@ export default {
 
 		refresh() {
 			window.location.reload()
+		},
+		handleClick() {
+			this.clickCount += 1;
+			this.showCards();
 		},
 		showCards() {
 			this.showingCards = !this.showingCards;
