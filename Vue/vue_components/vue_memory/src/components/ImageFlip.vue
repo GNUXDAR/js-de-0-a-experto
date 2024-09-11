@@ -1,7 +1,10 @@
 <template>
 
+	<p class="intro" v-if="victory">Felicidades! Has Ganado!</p>
+
 	<button class="btn" type="button" @click="refresh()">Barajar</button>
-	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{	showingCards ? 'Ocultar' : 'Mostrar' }}</button>
+	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{ showingCards ?
+		'Ocultar' : 'Mostrar' }}</button>
 
 	<div class="card-container">
 		<div class="card" v-for="(card, index) in cards" :key="index"
@@ -90,6 +93,13 @@ export default {
 		flippedCards() {
 			return this.cards.filter(card => card.flipped)
 		},
+		victory() {
+			// verigfica que todas las cards esten volteadas
+			const allFlipped = this.cards.every(card => card.flipped);
+			// console.log(allFlipped);
+
+			return allFlipped;
+		}
 	},
 	methods: {
 		// index me da la posicion de la imagen
@@ -125,19 +135,24 @@ export default {
 						this.cards[this.selectedCards[0]].border = 'green';
 						this.cards[this.selectedCards[1]].border = 'green';
 						this.selectedCards = [];
+						this.pairedCards = [];
+
+						// festejo por victoria
+						// console.log(victory);
+
 					}
 				}, 1000);
 			}
 		},
 		selectedImages() {
 			const images = this.images.flatMap(image => [image, image]);
-			for(let i=images.length-1; i>0; i--) {
-				const j=Math.floor(Math.random()*(i+1));
+			for (let i = images.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
 				[images[i], images[j]] = [images[j], images[i]];
 			}
-			this.cards = images.map((image)=>({image, flipped:false}));
+			this.cards = images.map((image) => ({ image, flipped: false }));
 		},
-
+		// barajear las cartas
 		refresh() {
 			window.location.reload()
 		},
@@ -160,7 +175,7 @@ export default {
 				});
 			}
 		}
-,
+		,
 	}
 }
 </script>
@@ -211,7 +226,8 @@ export default {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	backface-visibility: hidden; /* oculta la cara no visible cuando la carta se voltea */
+	backface-visibility: hidden;
+	/* oculta la cara no visible cuando la carta se voltea */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -234,6 +250,7 @@ export default {
 	transform: rotateY(180deg);
 	transition: transform 0.5s;
 }
+
 .square {
 	margin-left: 1.5px;
 	width: 100%;
@@ -241,6 +258,7 @@ export default {
 	object-fit: cover;
 	display: block;
 }
+
 .btn {
 	width: 110px;
 	padding: 0.5%;
@@ -252,6 +270,7 @@ export default {
 	font-size: medium;
 	color: beige;
 }
+
 .btn-flipped {
 	width: 110px;
 	padding: 0.5%;
@@ -262,5 +281,11 @@ export default {
 	cursor: pointer;
 	font-size: medium;
 	color: beige;
+}
+
+.intro {
+	color: #fff;
+	font-size: 25px;
+	padding: 40px;
 }
 </style>
