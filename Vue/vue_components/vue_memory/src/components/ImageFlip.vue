@@ -1,9 +1,7 @@
 <template>
-	<p class="intro" v-if="victory">Felicidades! Has Ganado!</p>
 
 	<button class="btn" type="button" @click="refresh()">Barajar</button>
-	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{ showingCards ?
-		'Ocultar' : 'Mostrar' }}</button>
+	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{	showingCards ? 'Ocultar' : 'Mostrar' }}</button>
 
 	<div class="card-container">
 		<div class="card" v-for="(card, index) in cards" :key="index"
@@ -92,13 +90,6 @@ export default {
 		flippedCards() {
 			return this.cards.filter(card => card.flipped)
 		},
-		victory() {
-			// verigfica que todas las cards esten volteadas
-			const allFlipped = this.cards.every(card => card.flipped);
-			// console.log(allFlipped);
-
-			return allFlipped;
-		}
 	},
 	methods: {
 		// index me da la posicion de la imagen
@@ -134,11 +125,6 @@ export default {
 						this.cards[this.selectedCards[0]].border = 'green';
 						this.cards[this.selectedCards[1]].border = 'green';
 						this.selectedCards = [];
-						this.pairedCards = [];
-
-						// festejo por victoria
-						// console.log(victory);
-
 					}
 				}, 1000);
 			}
@@ -151,7 +137,7 @@ export default {
 			}
 			this.cards = images.map((image)=>({image, flipped:false}));
 		},
-		// barajear las cartas
+
 		refresh() {
 			window.location.reload()
 		},
@@ -276,11 +262,5 @@ export default {
 	cursor: pointer;
 	font-size: medium;
 	color: beige;
-}
-
-.intro {
-	color: #fff;
-	font-size: 25px;
-	padding: 40px;
 }
 </style>
