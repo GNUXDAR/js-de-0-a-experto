@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@tsparticles/vue3": "^3.0.1",
     "core-js": "^3.8.3",
+    "tsparticles": "^3.5.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
