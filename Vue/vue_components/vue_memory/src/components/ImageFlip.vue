@@ -1,6 +1,11 @@
 <template>
-
-	<p class="intro" v-if="victory">Felicidades! Has Ganado!</p>
+	<div v-if="victory && clickCount !=1">
+		<div class="victory-message">
+			<img :src="dance" width="10%" />
+			<p class="intro">Felicidades! Has Ganado!</p>
+			<button class="btn" type="button" @click="refresh()">Nuevo</button>
+		</div>
+	</div>
 
 	<button class="btn" type="button" @click="refresh()">Barajar</button>
 	<button class="btn-flipped" type="button" @click="handleClick()" :disabled="clickCount >= 2">{{ showingCards ?
@@ -50,43 +55,44 @@ export default {
 			images: [
 				'cards-tec/00.svg',
 				'cards-tec/02.svg',
-				'cards-tec/03.svg',
-				'cards-tec/04.svg',
-				'cards-tec/05.svg',
-				'cards-tec/06.svg',
-				'cards-tec/07.svg',
-				'cards-tec/08.svg',
-				'cards-tec/09.svg',
-				'cards-tec/10.svg',
-				'cards-tec/11.svg',
-				'cards-tec/12.svg',
-				'cards-tec/13.svg',
-				'cards-tec/14.svg',
-				'cards-tec/15.svg',
-				'cards-tec/16.svg',
-				'cards-tec/17.svg',
-				'cards-tec/18.svg',
-				'cards-tec/19.svg',
-				'cards-tec/20.svg',
-				'cards-tec/21.svg',
-				'cards-tec/22.svg',
-				'cards-tec/23.svg',
-				'cards-tec/24.svg',
-				'cards-tec/25.svg',
-				'cards-tec/26.svg',
-				'cards-tec/27.svg',
-				'cards-tec/28.svg',
-				'cards-tec/29.svg',
-				'cards-tec/30.svg',
-				'cards-tec/31.svg',
-				'cards-tec/32.svg',
-				'cards-tec/33.svg',
-				'cards-tec/34.svg',
-				'cards-tec/35.svg',
-				'cards-tec/36.svg',
-				'cards-tec/37.svg',
-				'cards-tec/38.svg',
-			]
+				// 'cards-tec/03.svg',
+				// 'cards-tec/04.svg',
+				// 'cards-tec/05.svg',
+				// 'cards-tec/06.svg',
+				// 'cards-tec/07.svg',
+				// 'cards-tec/08.svg',
+				// 'cards-tec/09.svg',
+				// 'cards-tec/10.svg',
+				// 'cards-tec/11.svg',
+				// 'cards-tec/12.svg',
+				// 'cards-tec/13.svg',
+				// 'cards-tec/14.svg',
+				// 'cards-tec/15.svg',
+				// 'cards-tec/16.svg',
+				// 'cards-tec/17.svg',
+				// 'cards-tec/18.svg',
+				// 'cards-tec/19.svg',
+				// 'cards-tec/20.svg',
+				// 'cards-tec/21.svg',
+				// 'cards-tec/22.svg',
+				// 'cards-tec/23.svg',
+				// 'cards-tec/24.svg',
+				// 'cards-tec/25.svg',
+				// 'cards-tec/26.svg',
+				// 'cards-tec/27.svg',
+				// 'cards-tec/28.svg',
+				// 'cards-tec/29.svg',
+				// 'cards-tec/30.svg',
+				// 'cards-tec/31.svg',
+				// 'cards-tec/32.svg',
+				// 'cards-tec/33.svg',
+				// 'cards-tec/34.svg',
+				// 'cards-tec/35.svg',
+				// 'cards-tec/36.svg',
+				// 'cards-tec/37.svg',
+				// 'cards-tec/38.svg',
+			],
+			dance: 'img-front/dance.gif',
 		}
 	},
 	computed: {
@@ -285,7 +291,24 @@ export default {
 
 .intro {
 	color: #fff;
-	font-size: 25px;
+	font-size: 35px;
 	padding: 40px;
+	margin-top: 10px;
+}
+.victory-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.5); /* Fondo difuminado negro */
+	backdrop-filter: blur(5px); /* Efecto de desenfoque */
+	z-index: 1000; /* Prioridad de apilamiento */
 }
 </style>
