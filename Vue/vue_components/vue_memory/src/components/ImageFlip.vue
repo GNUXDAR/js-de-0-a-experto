@@ -3,6 +3,7 @@
 		<div class="victory-message">
 			<img :src="dance" width="10%" />
 			<p class="intro">Felicidades! Has Ganado!</p>
+			<!-- <ParticlesComponent /> -->
 			<button class="btn" type="button" @click="refresh()">Nuevo</button>
 		</div>
 	</div>
@@ -26,8 +27,12 @@
 </template>
 
 <script>
+// import ParticlesComponent from './ParticlesComponent.vue';
 export default {
 	name: 'ImageFlip',
+	components: {
+		// ParticlesComponent
+	},
 	props: {
 		total: {
 			type: Number,
@@ -44,6 +49,7 @@ export default {
 	},
 	mounted() {
 		this.selectedImages();
+		this.startConfetti()
 	},
 	data() {
 		return {
@@ -180,8 +186,7 @@ export default {
 					card.border = '';
 				});
 			}
-		}
-		,
+		},
 	}
 }
 </script>
