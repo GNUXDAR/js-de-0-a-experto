@@ -1,5 +1,6 @@
 <template>
 	<div class="about">
+		<ParticlesComponent />
 		<h1>Memory</h1>
 		<h2>Beneficios de los juegos de memoria</h2>
 		<p>Entre los beneficios que pueden otorgar los juegos de memoria para las personas encontramos:</p>
@@ -16,6 +17,17 @@
 		</ol>
 	</div>
 </template>
+
+<script>
+import ParticlesComponent from '@/components/ParticlesComponent.vue';
+
+export default {
+	components: {
+		ParticlesComponent
+	}
+}
+
+</script>
 
 <style>
 ol {
