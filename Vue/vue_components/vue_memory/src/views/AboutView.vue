@@ -1,6 +1,5 @@
 <template>
 	<div class="about">
-		<ParticlesComponent />
 		<h1>Memory</h1>
 		<h2>Beneficios de los juegos de memoria</h2>
 		<p>Entre los beneficios que pueden otorgar los juegos de memoria para las personas encontramos:</p>
@@ -15,6 +14,10 @@
 			<li>Aumenta la autoestima y autonomía del adulto mayor.</li>
 			<li>En definitiva, mejora su calidad de vida.</li>
 		</ol>
+	</div>
+
+	<div class="particles">
+		<ParticlesComponent />
 	</div>
 </template>
 
@@ -35,6 +38,20 @@ ol {
 		display: inline-block;
 }
 
+.particles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	/* Para que quede detrás de .about */
+}
+
+.about {
+	position: relative;
+	/* z-index: 999; */
+}
 .about,
 h1 {
 	color: #fff;
