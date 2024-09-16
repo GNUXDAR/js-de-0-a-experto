@@ -1,6 +1,7 @@
 <template>
 	<nav>
-		<router-link to="/">Home</router-link> |
+		<router-link to="/">Kids</router-link> |
+		<router-link to="/dev">Developers</router-link> |
 		<router-link to="/about">About</router-link>
 	</nav>
 	<router-view />
@@ -18,7 +19,8 @@ export default {
 </script>
 
 <style>
-#app {
+/* estilos graienates para todas las vistas */
+/* #app {
 	background: linear-gradient(-45deg, #52eed7, #3ce789, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -37,7 +39,7 @@ export default {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
