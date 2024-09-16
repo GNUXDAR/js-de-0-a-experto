@@ -1,6 +1,7 @@
 <template>
 	<div v-if="victory && clickCount !=1">
 		<div class="victory-message">
+			<ConfettiExplosion :particleCount="200" :duration="5000" :stageHeight="1400" />
 			<img :src="dance" width="10%" />
 			<p class="intro">Felicidades! Has Ganado!</p>
 			<!-- <ParticlesComponent /> -->
@@ -28,9 +29,12 @@
 
 <script>
 // import ParticlesComponent from './ParticlesComponent.vue';
+import ConfettiExplosion from "vue-confetti-explosion";
+
 export default {
 	name: 'ImageFlip',
 	components: {
+		ConfettiExplosion
 		// ParticlesComponent
 	},
 	props: {
@@ -74,6 +78,7 @@ export default {
 				'cards-tec/14.svg',
 				'cards-tec/15.svg',
 				'cards-tec/16.svg',
+				
 				// 'cards-tec/17.svg',
 				// 'cards-tec/18.svg',
 				// 'cards-tec/19.svg',
