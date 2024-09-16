@@ -49,7 +49,6 @@ export default {
 	},
 	mounted() {
 		this.selectedImages();
-		this.startConfetti()
 	},
 	data() {
 		return {
@@ -61,20 +60,20 @@ export default {
 			images: [
 				'cards-tec/00.svg',
 				'cards-tec/02.svg',
-				// 'cards-tec/03.svg',
-				// 'cards-tec/04.svg',
-				// 'cards-tec/05.svg',
-				// 'cards-tec/06.svg',
-				// 'cards-tec/07.svg',
-				// 'cards-tec/08.svg',
-				// 'cards-tec/09.svg',
-				// 'cards-tec/10.svg',
-				// 'cards-tec/11.svg',
-				// 'cards-tec/12.svg',
-				// 'cards-tec/13.svg',
-				// 'cards-tec/14.svg',
-				// 'cards-tec/15.svg',
-				// 'cards-tec/16.svg',
+				'cards-tec/03.svg',
+				'cards-tec/04.svg',
+				'cards-tec/05.svg',
+				'cards-tec/06.svg',
+				'cards-tec/07.svg',
+				'cards-tec/08.svg',
+				'cards-tec/09.svg',
+				'cards-tec/10.svg',
+				'cards-tec/11.svg',
+				'cards-tec/12.svg',
+				'cards-tec/13.svg',
+				'cards-tec/14.svg',
+				'cards-tec/15.svg',
+				'cards-tec/16.svg',
 				// 'cards-tec/17.svg',
 				// 'cards-tec/18.svg',
 				// 'cards-tec/19.svg',
