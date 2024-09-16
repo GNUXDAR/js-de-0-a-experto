@@ -43,3 +43,37 @@ createApp(App).use(Particles, {
   },
 });
 
+## Install vue-confetti-explosion
+# npm
+npm install vue-confetti-explosion
+
+# yarn
+yarn add vue-confetti-explosion
+
+## Basic usage:
+En el componente que se va a utilizar 
+<script setup>
+  import ConfettiExplosion from "vue-confetti-explosion";
+
+  components: {
+		ConfettiExplosion,
+	}
+</script>
+
+<template>
+	<div class="particles">
+		<ParticlesComponent />
+	</div>
+</template>
+
+<style>
+  .particles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	/* Para que quede detrás */
+}
+</style>
