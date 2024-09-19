@@ -42,10 +42,6 @@ export default {
 			type: Number,
 			required: true
 		},
-		imgBlack: {
-			type: String,
-			required: true
-		},
 		imgWhite: {
 			type: String,
 			required: true
@@ -62,45 +58,16 @@ export default {
 			showingCard: false,
 			clickCount: 0,
 			images: [
-				'cards-tec/00.svg',
-				'cards-tec/02.svg',
-				'cards-tec/03.svg',
-				'cards-tec/04.svg',
-				'cards-tec/05.svg',
-				'cards-tec/06.svg',
-				'cards-tec/07.svg',
-				'cards-tec/08.svg',
-				'cards-tec/09.svg',
-				'cards-tec/10.svg',
-				'cards-tec/11.svg',
-				'cards-tec/12.svg',
-				'cards-tec/13.svg',
-				'cards-tec/14.svg',
-				'cards-tec/15.svg',
-				'cards-tec/16.svg',
-				
-				// 'cards-tec/17.svg',
-				// 'cards-tec/18.svg',
-				// 'cards-tec/19.svg',
-				// 'cards-tec/20.svg',
-				// 'cards-tec/21.svg',
-				// 'cards-tec/22.svg',
-				// 'cards-tec/23.svg',
-				// 'cards-tec/24.svg',
-				// 'cards-tec/25.svg',
-				// 'cards-tec/26.svg',
-				// 'cards-tec/27.svg',
-				// 'cards-tec/28.svg',
-				// 'cards-tec/29.svg',
-				// 'cards-tec/30.svg',
-				// 'cards-tec/31.svg',
-				// 'cards-tec/32.svg',
-				// 'cards-tec/33.svg',
-				// 'cards-tec/34.svg',
-				// 'cards-tec/35.svg',
-				// 'cards-tec/36.svg',
-				// 'cards-tec/37.svg',
-				// 'cards-tec/38.svg',
+				'cards-kids/00.svg',
+				'cards-kids/02.svg',
+				'cards-kids/03.svg',
+				'cards-kids/04.svg',
+				'cards-kids/05.svg',
+				'cards-kids/06.svg',
+				'cards-kids/07.svg',
+				'cards-kids/08.svg',
+				'cards-kids/09.svg',
+				'cards-kids/10.svg',
 			],
 			dance: 'img-front/dance.gif',
 		}
@@ -152,9 +119,6 @@ export default {
 						this.cards[this.selectedCards[1]].border = 'green';
 						this.selectedCards = [];
 						this.pairedCards = [];
-
-						// festejo por victoria
-						// console.log(victory);
 
 					}
 				}, 1000);
