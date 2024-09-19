@@ -36,7 +36,7 @@ export default {
 			// square: 24,
 			title: 'Memory {{ Capitan Vue }}',
 			imgBlack: 'img-front/bk-blak.png',
-			imgWhite: 'cards-tec/original.svg',
+			imgWhite: 'cards-kids/front.svg',
 			total: 11,
 			cardsBlock: [],
 		}
