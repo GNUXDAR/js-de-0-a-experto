@@ -8,7 +8,7 @@ Aquí encontrarás una **colección de libros de JavaScript** traducidos por la 
 |----|--------|------|-----|
 |<img src="EbookEloquent/cover/cover_1st.png" width="50">  |1era Edition | [EN](https://eloquentjavascript.net/1st_edition/)  | [ pdf -EN ](EbookEloquent/Eloquent_JavaScript_EN.pdf) |
 |<img src="EbookEloquent/cover/cover_2nd.png" width="50">  |2da Edition |  [EN](https://eloquentjavascript.net/2nd_edition/)  | [ pdf - EN](EbookEloquent/Eloquent_JavaScript_2nd_EN.pdf) |
-|<img src="EbookEloquent/cover/cover_3rd.jpg" width="50">  |3ra Edition |  [EN](https://eloquentjavascript.net/3rd_edition/)  | [ pdf - ES](EbookEloquent/Eloquent_JavaScript_3ra_ES.pdf)
+|<img src="EbookEloquent/cover/cover_3rd.jpg" width="50">  |3ra Edition |  [EN](https://eloquentjavascript.net/3rd_edition/) / [ES](https://eloquentjs-es.thedojo.mx/)  | [ pdf - ES](EbookEloquent/Eloquent_JavaScript_3ra_ES.pdf)
 |<img src="EbookEloquent/cover/cover_4th.jpg" width="50">  |4ta Edition |  [EN](https://eloquentjavascript.net/)  /  [ES](https://www.eloquentjavascript.es/)| [pdf - ES](EbookEloquent/Eloquent_JavaScript_4ta_ES.pdf) |
 
 
