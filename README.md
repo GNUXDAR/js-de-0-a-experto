@@ -1,9 +1,11 @@
 
+[![Read the Docs](https://img.shields.io/badge/EBOOKS-Eloquent-yellow)](Docs/EBOOKS.md)
 
-![vue](Vue/img/Common-Vue.png)
+<img src="Vue/img/Common-Vue.png" width="50%">
+
 Vue.js es un framework de JavaScript progresivo utilizado para construir interfaces de usuario y aplicaciones de una sola página (SPA). Aquí un resumen de sus características y componentes clave:
 
-## Componentes [aqui](Vue/vue_components)
+## Componentes [[aqui](Vue/vue_components)]
 
 ### Características Principales
 
