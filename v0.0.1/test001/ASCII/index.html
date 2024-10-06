@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASCII</title>
     <script src="ASCII.js"></script>
+
+    <style>
+        /* form */
+        .form-container{
+            text-align: center;
+            align-content: center;
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 5px;
+            width: 300px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        /* table */
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* para crear una cuadrícula de 4 columnas de igual tamaño */
+            gap: 10px;
+            text-align: center;
+        }
+
+        .header {
+            font-weight: bold;
+            background-color: #b5e6b3;
+            padding: 10px;
+        }
+
+        .cell {
+            padding: 10px;
+            border: 1px solid #000;
+        }
+
+        .info {
+            text-align: center;
+            margin: 20px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="form-container">
+        <h2>Convertir Cadenas a Códigos ASCII</h2>
+        
+        <label for="cadenaInput">Ingrese su cadena:</label><br>
+        <input type="text" id="cadenaInput" placeholder="Escribe una cadena aquí">
+        <button onclick="convertir()">Convertir</button>
+        
+        <div class="result">
+            <h3>Resultados:</h3>
+            <p><strong>Cadena Original:</strong> <span id="original"></span></p>
+            <p><strong>Códigos Decimales:</strong> <span id="decimales"></span></p>
+            <p><strong>Códigos Hexadecimales:</strong> <span id="hexadecimales"></span></p>
+            <p><strong>Códigos Binarios:</strong> <span id="binarios"></span></p>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Headers -->
+        <div class="header">Letra minúscula</div>
+        <div class="header">Código ASCII</div>
+        <div class="header">Letra mayúscula</div>
+        <div class="header">Código ASCII</div>
+
+        <!-- Data -->
+        <span class="cell">a</span><span class="cell">97</span><span class="cell">A</span><span class="cell">65</span>
+        <span class="cell">b</span><span class="cell">98</span><span class="cell">B</span><span class="cell">66</span>
+        <span class="cell">c</span><span class="cell">99</span><span class="cell">C</span><span class="cell">67</span>
+        <span class="cell">d</span><span class="cell">100</span><span class="cell">D</span><span class="cell">68</span>
+        <span class="cell">e</span><span class="cell">101</span><span class="cell">E</span><span class="cell">69</span>
+        <span class="cell">f</span><span class="cell">102</span><span class="cell">F</span><span class="cell">70</span>
+        <span class="cell">g</span><span class="cell">103</span><span class="cell">G</span><span class="cell">71</span>
+        <span class="cell">h</span><span class="cell">104</span><span class="cell">H</span><span class="cell">72</span>
+        <span class="cell">i</span><span class="cell">105</span><span class="cell">I</span><span class="cell">73</span>
+        <span class="cell">j</span><span class="cell">106</span><span class="cell">J</span><span class="cell">74</span>
+        <span class="cell">k</span><span class="cell">107</span><span class="cell">K</span><span class="cell">75</span>
+        <span class="cell">l</span><span class="cell">108</span><span class="cell">L</span><span class="cell">76</span>
+        <span class="cell">m</span><span class="cell">109</span><span class="cell">M</span><span class="cell">77</span>
+        <span class="cell">n</span><span class="cell">110</span><span class="cell">N</span><span class="cell">78</span>
+        <span class="cell">o</span><span class="cell">111</span><span class="cell">O</span><span class="cell">79</span>
+        <span class="cell">p</span><span class="cell">112</span><span class="cell">P</span><span class="cell">80</span>
+        <span class="cell">q</span><span class="cell">113</span><span class="cell">Q</span><span class="cell">81</span>
+        <span class="cell">r</span><span class="cell">114</span><span class="cell">R</span><span class="cell">82</span>
+        <span class="cell">s</span><span class="cell">115</span><span class="cell">S</span><span class="cell">83</span>
+        <span class="cell">t</span><span class="cell">116</span><span class="cell">T</span><span class="cell">84</span>
+        <span class="cell">u</span><span class="cell">117</span><span class="cell">U</span><span class="cell">85</span>
+        <span class="cell">v</span><span class="cell">118</span><span class="cell">V</span><span class="cell">86</span>
+        <span class="cell">w</span><span class="cell">119</span><span class="cell">W</span><span class="cell">87</span>
+        <span class="cell">x</span><span class="cell">120</span><span class="cell">X</span><span class="cell">88</span>
+        <span class="cell">y</span><span class="cell">121</span><span class="cell">Y</span><span class="cell">89</span>
+        <span class="cell">z</span><span class="cell">122</span><span class="cell">Z</span><span class="cell">90</span>
+    </div>
+
+    <div class="info">
+        <p><strong>Letras Mayúsculas:</strong> A(65), B(66), Z(90)</p>
+        <p><strong>Letras Minúsculas:</strong> a(97), b(98), z(122)</p>
+        <p><strong>Números:</strong> 0(48), 1(49), 9(57)</p>
+    </div>
 </body>
+
 </html>
