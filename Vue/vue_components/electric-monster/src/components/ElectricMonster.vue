@@ -1,235 +1,193 @@
 <template>
-    <canvas ref="canvas"></canvas>
+    <div class="container">
+      <canvas ref="canvas"></canvas>
+    </div>
   </template>
   
-  <script setup>
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
-  
-  const canvas = ref(null);
-  const w = ref(window.innerWidth);
-  const h = ref(window.innerHeight);
-  const mouse = ref({ x: false, y: false });
-  const last_mouse = ref({});
-  const tentacles = ref([]);
-  const target = ref({ x: 0, y: 0 });
-  const last_target = ref({});
-//   const t = ref(0);
-  const numTentacles = 500;
-  
-  class Segment {
-    constructor(parent, l, a, first) {
-      this.first = first;
-      this.l = l;
-      if (first) {
-        this.pos = { x: parent.x, y: parent.y };
-      } else {
-        this.pos = { x: parent.nextPos.x, y: parent.nextPos.y };
-      }
-      this.ang = a;
-      this.updateNextPos();
-    }
-  
-    updateNextPos() {
-      this.nextPos = {
-        x: this.pos.x + this.l * Math.cos(this.ang),
-        y: this.pos.y + this.l * Math.sin(this.ang),
+  <script>
+  export default {
+    name: "ElectricMonster",
+    data() {
+      return {
+        canvas: null,
+        context: null,
+        mouse: { x: false, y: false },
+        last_mouse: {},
+        tentacles: [],
+        target: { x: 0, y: 0 },
+        last_target: {},
+        numt: 500,
+        maxl: 300,
+        minl: 50,
+        n: 30,
+        t: 0,
+        q: 10,
+        clicked: false,
+        requestAnimFrame:
+          window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame ||
+          function (callback) {
+            window.setTimeout(callback);
+          },
       };
-    }
+    },
+    mounted() {
+      this.canvas = this.$refs.canvas;
+      this.context = this.canvas.getContext("2d");
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
   
-    update(t) {
-      this.ang = Math.atan2(t.y - this.pos.y, t.x - this.pos.x);
-      this.pos.x = t.x + this.l * Math.cos(this.ang - Math.PI);
-      this.pos.y = t.y + this.l * Math.sin(this.ang - Math.PI);
-      this.updateNextPos();
-    }
-  
-    fallback(t) {
-      this.pos.x = t.x;
-      this.pos.y = t.y;
-      this.updateNextPos();
-    }
-  
-    show(c) {
-      c.lineTo(this.nextPos.x, this.nextPos.y);
-    }
-  }
-  
-  class Tentacle {
-    constructor(x, y, l, n) {
-      this.x = x;
-      this.y = y;
-      this.l = l;
-      this.n = n;
-      this.rand = Math.random();
-      this.segments = [new Segment(this, this.l / this.n, 0, true)];
-      
-      for (let i = 1; i < n; i++) {
-        this.segments.push(new Segment(this.segments[i - 1], this.l / this.n, 0, false));
-      }
-    }
-  
-    move(last_target, target) {
-      const angle = Math.atan2(target.y - this.y, target.x - this.x);
-      const dt = dist(last_target.x, last_target.y, target.x, target.y) + 5;
-      
-      const tPos = {
-        x: target.x - 0.8 * dt * Math.cos(angle),
-        y: target.y - 0.8 * dt * Math.sin(angle),
-      };
-  
-      if (tPos.x) {
-        this.segments[this.n - 1].update(tPos);
-      } else {
-        this.segments[this.n - 1].update(target);
-      }
-  
-      for (let i = this.n - 2; i >= 0; i--) {
-        this.segments[i].update(this.segments[i + 1].pos);
-      }
-  
-      if (dist(this.x, this.y, target.x, target.y) <= 
-          (this.l + dist(last_target.x, last_target.y, target.x, target.y))) {
-        this.segments[0].fallback({ x: this.x, y: this.y });
-        for (let i = 1; i < this.n; i++) {
-          this.segments[i].fallback(this.segments[i - 1].nextPos);
+      this.initTentacles();
+      this.addEventListeners();
+      this.loop();
+    },
+    methods: {
+      dist(p1x, p1y, p2x, p2y) {
+        return Math.sqrt(Math.pow(p2x - p1x, 2) + Math.pow(p2y - p1y, 2));
+      },
+      initTentacles() {
+        for (let i = 0; i < this.numt; i++) {
+          this.tentacles.push(
+            new this.Tentacle(
+              Math.random() * this.canvas.width,
+              Math.random() * this.canvas.height,
+              Math.random() * (this.maxl - this.minl) + this.minl,
+              this.n,
+              Math.random() * 2 * Math.PI,
+              this.context
+            )
+          );
         }
-      }
-    }
+      },
+      Tentacle(x, y, l, n, a, c) {
+        return {
+          x,
+          y,
+          l,
+          n,
+          rand: Math.random(),
+          segments: [new this.Segment({ x, y }, l / n, 0, true)],
+          c,
+          angle: 0,
+          move(last_target, target) {
+            this.angle = Math.atan2(target.y - this.y, target.x - this.x);
+            const dt = this.dist(last_target.x, last_target.y, target.x, target.y) + 5;
+            const t = {
+              x: target.x - 0.8 * dt * Math.cos(this.angle),
+              y: target.y - 0.8 * dt * Math.sin(this.angle),
+            };
   
-    show(c) {
-      c.globalCompositeOperation = "lighter";
-      c.beginPath();
-      
-      c.lineTo(this.x, this.y);
-      
-      for (let segment of this.segments) {
-        segment.show(c);
-      }
+            this.segments[this.n - 1].update(t);
   
-      c.strokeStyle = `hsl(${this.rand * 60 + 180},100%,${this.rand * 60 + 25}%)`;
-      c.lineWidth = this.rand * 2;
-      c.lineCap = "round";
-      
-      c.stroke();
-      
-      c.globalCompositeOperation = "source-over";
-      
-      // Draw the end point
-      c.beginPath();
-      
-      if (dist(this.x, this.y, target.value.x, target.value.y) <= (this.l)) {
-        c.arc(this.x, this.y, (2 * this.rand + 1), 0, Math.PI * 2);
-        c.fillStyle = "white";
-        
-        c.fill();
-        
-        return true;
-        
-       } else {
-         c.arc(this.x, this.y, (this.rand * 2), 0 , Math.PI *2 );
-         c.fillStyle= "darkcyan";
-         c.fill();
-       }
-     }
-  }
+            for (let i = this.n - 2; i >= 0; i--) {
+              this.segments[i].update(this.segments[i + 1].pos);
+            }
+          },
+          // eslint-disable-next-line no-unused-vars
+          show(target) {
+            this.c.globalCompositeOperation = "lighter";
+            this.c.beginPath();
+            this.c.lineTo(this.x, this.y);
   
-  function dist(p1x, p1y, p2x, p2y) {
-     return Math.sqrt(Math.pow(p2x - p1x, 2) + Math.pow(p2y - p1y, 2));
-  }
+            this.segments.forEach((seg) => seg.show());
   
-  function initCanvas() {
-     const ctx = canvas.value.getContext("2d");
-     ctx.fillStyle = "rgba(30,30,30,1)";
-     ctx.fillRect(0, 0, w.value, h.value);
-  }
+            this.c.strokeStyle = `hsl(${this.rand * 60 + 180}, 100%, ${this.rand * 60 + 25}%)`;
+            this.c.lineWidth = this.rand * 2;
+            this.c.lineCap = "round";
+            this.c.lineJoin = "round";
+            this.c.stroke();
+            this.c.globalCompositeOperation = "source-over";
+          },
+        };
+      },
+      Segment(parent, l, a, first) {
+        const { x, y } = first ? parent : parent.nextPos;
+        return {
+          pos: { x, y },
+          l,
+          ang: a,
+          nextPos: {
+            x: x + l * Math.cos(a),
+            y: y + l * Math.sin(a),
+          },
+          update(target) {
+            this.ang = Math.atan2(target.y - this.pos.y, target.x - this.pos.x);
+            this.pos.x = target.x + this.l * Math.cos(this.ang - Math.PI);
+            this.pos.y = target.y + this.l * Math.sin(this.ang - Math.PI);
+            this.nextPos.x = this.pos.x + this.l * Math.cos(this.ang);
+            this.nextPos.y = this.pos.y + this.l * Math.sin(this.ang);
+          },
+          show() {
+            this.c.lineTo(this.nextPos.x, this.nextPos.y);
+          },
+        };
+      },
+      addEventListeners() {
+        this.canvas.addEventListener("mousemove", (e) => {
+          this.last_mouse.x = this.mouse.x;
+          this.last_mouse.y = this.mouse.y;
+          this.mouse.x = e.pageX;
+          this.mouse.y = e.pageY;
+        });
   
-  function createTentacles() {
-     const maxl = 300;
-     const minl = 50;
-     const nSegments = 30;
+        this.canvas.addEventListener("mouseleave", () => {
+          this.mouse.x = false;
+          this.mouse.y = false;
+        });
   
-     for (let i = 0; i < numTentacles; i++) {
-       const length = Math.random() * (maxl - minl) + minl;
-       const xPosition = Math.random() * w.value;
-       const yPosition = Math.random() * h.value;
+        this.canvas.addEventListener("mousedown", () => {
+          this.clicked = true;
+        });
   
-       tentacles.value.push(new Tentacle(xPosition, yPosition,length,nSegments));
-     }
-  }
+        this.canvas.addEventListener("mouseup", () => {
+          this.clicked = false;
+        });
   
-  function handleResize() {
-     w.value = window.innerWidth;
-     h.value = window.innerHeight;
-     canvas.value.width = w.value;
-     canvas.value.height= h.value;
-  }
+        window.addEventListener("resize", () => {
+          this.canvas.width = window.innerWidth;
+          this.canvas.height = window.innerHeight;
+          this.loop();
+        });
+      },
+      draw() {
+        if (this.mouse.x) {
+          this.target.x += (this.mouse.x - this.target.x) / 10;
+          this.target.y += (this.mouse.y - this.target.y) / 10;
+        }
   
-  function handleMouseMove(e) {
-     const rect= canvas.value.getBoundingClientRect();
-     last_mouse.value.x= mouse.value.x;
-     last_mouse.value.y= mouse.value.y;
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   
-     mouse.value.x= e.clientX- rect.left;
-     mouse.value.y= e.clientY- rect.top;
-  }
+        this.tentacles.forEach((tentacle) => {
+          tentacle.move(this.last_target, this.target);
+          tentacle.show(this.target);
+        });
   
-  function handleMouseLeave() {
-     mouse.value= { x: false,y:false };
-  }
-  
-  function startAnimation() {
-     const loop= () => {
-       requestAnimationFrame(loop);
-  
-       const ctx= canvas.value.getContext("2d");
-       ctx.clearRect(0 ,0 ,w.value ,h.value);
-  
-       if (mouse.value.x) {
-         target.value.errx= mouse.value.x- target.value.x;
-         target.value.erry= mouse.value.y- target.value.y;
-  
-       } else {
-  
-         // Animation logic when mouse is not present
-         // Update the target position
-       }
-  
-       for (let tentacle of tentacles.value) {
-         tentacle.move(last_target.value,{...target.value});
-         tentacle.show(ctx);
-       }
-  
-       Object.assign(last_target.value,{...target.value});
-     };
-  
-     loop();
-  }
-  
-  onMounted(() => {
-     initCanvas();
-     createTentacles();
-     startAnimation();
-  
-     window.addEventListener("resize", handleResize);
-     canvas.value.addEventListener("mousemove", handleMouseMove);
-     canvas.value.addEventListener("mouseleave", handleMouseLeave);
-  });
-  
-  onBeforeUnmount(() => {
-     window.removeEventListener("resize", handleResize);
-  });
-  
+        this.last_target.x = this.target.x;
+        this.last_target.y = this.target.y;
+      },
+      loop() {
+        this.requestAnimFrame(this.loop);
+        this.draw();
+      },
+    },
+  };
   </script>
   
   <style scoped>
   body,
   html {
-     margin: 0px;
-     padding:0px;
-     position: fixed;
-     background: rgb(28 ,24 ,24);
+    margin: 0;
+    padding: 0;
+    background: rgb(28, 24, 24);
+    overflow: hidden;
   }
-  canvas{
-     display:block;
+  .container {
+    margin: 1px;
+    padding: 5.5px;
+    background-color: #fff;
   }
   </style>
+  
